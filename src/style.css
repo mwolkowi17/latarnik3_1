@@ -15,7 +15,7 @@ html {
   transition: 0.2s ease-out;
 }
 
-.my-button::after {
+/* .my-button::after {
   content: "";
   position: absolute;
   left: 0;
@@ -24,7 +24,7 @@ html {
   height: 130%;
   width: 110%;
   box-sizing: border-box;
-}
+} */
 
 .my-button:hover {
   cursor: pointer;

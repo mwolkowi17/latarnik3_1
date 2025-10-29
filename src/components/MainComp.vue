@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import SceneStart from "./SceneStart.vue";
 import SceneInstruction from "./SceneInstruction.vue";
+import SceneLevelChose1 from "./SceneLevelChose1.vue";
 import SceneMain1 from "./SceneMain1.vue";
 import SceneMain2 from "./SceneMain2.vue";
 import SceneWinSilver from "./SceneWinSilver.vue";
@@ -29,6 +30,7 @@ onMounted(async () => {
     <div>
       <SceneStart v-if="store.ifStart" />
       <SceneInstruction v-if="store.ifInstruction" />
+      <SceneLevelChose1 v-if="store.ifSceneChose1" />
       <SceneMain1 v-if="store.ifMain1" />
       <SceneMain2 v-if="store.ifMain2" />
       <SceneWinSilver v-if="store.ifWinSilver" />
