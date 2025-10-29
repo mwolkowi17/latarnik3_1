@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import SceneStart from "./SceneStart.vue";
 import SceneInstruction from "./SceneInstruction.vue";
 import SceneMain1 from "./SceneMain1.vue";
 import SceneMain2 from "./SceneMain2.vue";
@@ -26,6 +27,7 @@ onMounted(async () => {
 <template>
   <main>
     <div>
+      <SceneStart v-if="store.ifStart" />
       <SceneInstruction v-if="store.ifInstruction" />
       <SceneMain1 v-if="store.ifMain1" />
       <SceneMain2 v-if="store.ifMain2" />
