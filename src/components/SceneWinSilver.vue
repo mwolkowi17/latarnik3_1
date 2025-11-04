@@ -25,7 +25,7 @@ onMounted(async () => {
 // });
 
 async function GramDalej() {
-  storeFocus.ifPytanieInFocus = false;
+  storeFocus.ifLevelChoseInFocus = false;
   await nextTick();
   storeMainComp.ifWinSilver = false;
   storeMainComp.ifSceneChose2 = true;
@@ -33,7 +33,7 @@ async function GramDalej() {
 
 async function GramDalejFocus(event: any) {
   event.preventDefault();
-  storeFocus.ifPytanieInFocus = true;
+  storeFocus.ifLevelChoseInFocus = true;
   await nextTick();
   storeMainComp.ifWinSilver = false;
   storeMainComp.ifSceneChose2 = true;

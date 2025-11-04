@@ -12,14 +12,14 @@ const storeFocus = useFocusStore();
 const wybierzLevel1Ref = useTemplateRef("level2");
 
 onMounted(() => {
-  console.log(storeFocus.ifPytanieInFocus);
+  console.log(storeFocus.ifLevelChoseInFocus);
   if (storeFocus.ifLevelChoseInFocus) {
     wybierzLevel1Ref.value?.focus();
   }
 });
 
 onUnmounted(() => {
-  storeFocus.ifInstructionFocus = false;
+  storeFocus.ifLevelChoseInFocus = false;
 });
 
 async function Level1() {
