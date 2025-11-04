@@ -27,13 +27,14 @@ onUnmounted(() => {
 });
 
 function jeszczeRaz() {
+  storeFocus.ifLevelChoseInFocus = false;
   storeMainComp.ifPrzegranaGold = false;
   storeMainComp.ifSceneChose2 = true;
 }
 
 async function jeszczeRazInFocus(event: any) {
   event.preventDefault();
-  storeFocus.ifPytanieInFocus = true;
+  storeFocus.ifLevelChoseInFocus = true;
   await nextTick();
   storeMainComp.ifPrzegranaGold = false;
   storeMainComp.ifSceneChose2 = true;
@@ -87,7 +88,7 @@ async function zakonczGreInFocus(event: any) {
         class="text-container"
         ref="przegrana-ref"
         tabindex="0"
-        :aria-label="ariatekst.komunikatZloty"
+        :aria-label="ariatekst.komunikatPrzegrana"
       >
         <p class="brawo">Przegrana!</p>
         <p class="text">Chcesz spróbować jeszcze raz?</p>

@@ -4,7 +4,7 @@ import PrawidlowaOdpowiedz from "./PrawidlowaOdpowiedz.vue";
 import ZlaOdpowiedz from "./ZlaOdpowiedz.vue";
 import { useSceneStore } from "../stores/sceneStore";
 import { useTimerStore } from "../stores/timerStore";
-import { useMainCompStore } from "../stores/mainCompStore";
+//import { useMainCompStore } from "../stores/mainCompStore";
 import { useKolaStore } from "../stores/storeKola";
 import { useFocusStore } from "../stores/focusStore";
 import { metodyPomocnicze } from "../lib/metody-pomocnicze";
@@ -12,7 +12,7 @@ import { nextTick, onMounted, onUnmounted, useTemplateRef, ref } from "vue";
 
 const storeSceneMain = useSceneStore();
 const storeTime = useTimerStore();
-const storeMainComp = useMainCompStore();
+//const storeMainComp = useMainCompStore();
 const storeKola = useKolaStore();
 const storeFocus = useFocusStore();
 
@@ -61,18 +61,18 @@ onUnmounted(() => {
 });
 
 //obsługa eventów podpiętych do buttonów
-function JeszczRaz() {
-  storeMainComp.ifMain1 = false;
-  storeMainComp.ifSceneChose1 = true;
-}
+// function JeszczRaz() {
+//   storeMainComp.ifMain1 = false;
+//   storeMainComp.ifSceneChose1 = true;
+// }
 
-async function JeszczRazInFocus(event: any) {
-  event.preventDefault();
-  storeFocus.ifLevelChoseInFocus = true;
-  await nextTick();
-  storeMainComp.ifMain1 = false;
-  storeMainComp.ifSceneChose1 = true;
-}
+// async function JeszczRazInFocus(event: any) {
+//   event.preventDefault();
+//   storeFocus.ifLevelChoseInFocus = true;
+//   await nextTick();
+//   storeMainComp.ifMain1 = false;
+//   storeMainComp.ifSceneChose1 = true;
+// }
 
 async function odpowiedz1Click() {
   if (!storeSceneMain.ifZablokowanaOdpowiedz) {
@@ -172,7 +172,7 @@ async function odpowiedz3Click() {
 async function odpowiedz3ClickWithFocus(event: any) {
   if (!storeSceneMain.ifZablokowanaOdpowiedz) {
     event.preventDefault();
-    storeFocus.focusOn;
+    storeFocus.focusOn();
     await nextTick();
     console.log("odp3");
     storeSceneMain.Odpowiedz1(3);
@@ -210,7 +210,7 @@ async function odpowiedz4Click() {
 async function odpowiedz4ClickWithFocus(event: any) {
   if (!storeSceneMain.ifZablokowanaOdpowiedz) {
     event.preventDefault();
-    storeFocus.focusOn;
+    storeFocus.focusOn();
     await nextTick();
     console.log("odp4");
     storeSceneMain.Odpowiedz1(4);

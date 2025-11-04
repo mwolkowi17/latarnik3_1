@@ -33,7 +33,7 @@ async function jeszczeRaz() {
 
 async function jeszczeRazInFocus(event: any) {
   event.preventDefault();
-  storeFocus.ifPytanieInFocus = true;
+  storeFocus.ifLevelChoseInFocus = true;
   await nextTick();
   storeMainComp.ifPrzegranaSilver = false;
   storeMainComp.ifSceneChose1 = true;
@@ -68,7 +68,7 @@ async function zakonczGreInFocus(event: any) {
         class="text-container"
         ref="przegrana-ref"
         tabindex="0"
-        :aria-label="ariatekst.komunikatSrebrny"
+        :aria-label="ariatekst.komunikatPrzegrana"
       >
         <p class="brawo">Przegrana!</p>
         <p class="text">Chcesz spróbować jeszcze raz?</p>
