@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useMainCompStore } from "../stores/mainCompStore";
-import { onMounted, onUnmounted, useTemplateRef, nextTick } from "vue";
+import { onMounted, useTemplateRef, nextTick } from "vue";
 import { useFocusStore } from "../stores/focusStore";
 import ariatekst from "../lib/aria-texty.json";
 
@@ -20,19 +20,39 @@ onMounted(async () => {
   sound_wygrana.play();
 });
 
-onUnmounted(() => {
-  storeFocus.ifWinSilverInFocus = false;
-});
+// onUnmounted(() => {
+//   storeFocus.ifWinSilverInFocus = false;
+// });
 
-function GrajJeszczeRaz() {
+async function GramDalej() {
+  storeFocus.ifPytanieInFocus = false;
+  await nextTick();
   storeMainComp.ifWinSilver = false;
-  storeMainComp.ifMain1 = true;
+  storeMainComp.ifSceneChose2 = true;
 }
 
-function GrajDalej() {
+async function GramDalejFocus(event: any) {
+  event.preventDefault();
+  storeFocus.ifPytanieInFocus = true;
+  await nextTick();
+  storeMainComp.ifWinSilver = false;
+  storeMainComp.ifSceneChose2 = true;
+}
+
+function ZakonczGre() {
   storeMainComp.ifWinSilver = false;
   storeMainComp.ifMain1 = false;
-  storeMainComp.ifMain2 = true;
+  //storeMainComp.ifMain2 = true;
+  storeMainComp.ifStart = true;
+}
+
+async function ZakonczGreFocus(event: any) {
+  event.preventDefault();
+  storeFocus.ifLevelChoseInFocus = true;
+  await nextTick();
+  storeMainComp.ifWinSilver = false;
+  storeMainComp.ifMain1 = false;
+  storeMainComp.ifStart = true;
 }
 </script>
 
@@ -58,11 +78,19 @@ function GrajDalej() {
         <p class="text">Przejdź do następnego poziomu.</p>
       </div>
       <div class="button-row">
-        <button class="my-button button-win" @click="GrajJeszczeRaz">
-          Zagraj jeszcze raz
+        <button
+          class="my-button button-win"
+          @click="GramDalej"
+          @keydown.enter="GramDalejFocus"
+        >
+          Gram dalej
         </button>
-        <button class="my-button button-win" @click="GrajDalej">
-          Graj dalej
+        <button
+          class="my-button button-win"
+          @click="ZakonczGre"
+          @keydown.enter="ZakonczGreFocus"
+        >
+          Zakończ grę
         </button>
       </div>
     </div>

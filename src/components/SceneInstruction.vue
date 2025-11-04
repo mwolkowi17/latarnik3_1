@@ -1,25 +1,39 @@
 <script setup lang="ts">
 import { useMainCompStore } from "../stores/mainCompStore";
 import { useFocusStore } from "../stores/focusStore";
-import { nextTick } from "vue";
+import { nextTick, useTemplateRef, onMounted, onUnmounted } from "vue";
 import instrukcja_reader from "../lib/aria-texty.json";
 
 const storeMainComp = useMainCompStore();
 const storeFocus = useFocusStore();
 
+//referencje do el html używane do obsługi focusa
+
+const instrukcjaRef = useTemplateRef("instrukcja");
+
+onMounted(() => {
+  if (storeFocus.ifInstructionFocus) {
+    instrukcjaRef.value?.focus();
+  }
+});
+
+onUnmounted(() => {
+  storeFocus.ifInstructionFocus = false;
+});
+
 async function Graj() {
-  storeFocus.ifPytanieInFocus = false;
+  storeFocus.ifLevelChoseInFocus = false;
   await nextTick();
   storeMainComp.ifInstruction = false;
-  storeMainComp.ifMain1 = true;
+  storeMainComp.ifSceneChose1 = true;
 }
 
 async function grajWithFocus(event: any) {
   event.preventDefault();
-  storeFocus.ifPytanieInFocus = true;
+  storeFocus.ifLevelChoseInFocus = true;
   await nextTick();
   storeMainComp.ifInstruction = false;
-  storeMainComp.ifMain1 = true;
+  storeMainComp.ifSceneChose1 = true;
 }
 </script>
 
@@ -27,7 +41,7 @@ async function grajWithFocus(event: any) {
   <div class="tlo" aria-label="Zasady gry">
     <div class="container">
       <div class="inner-box">
-        <h1 class="title">Kto wygra milion? Zasady gry</h1>
+        <h1 class="title">Zasady gry</h1>
         <div class="kola-ratunkowe">
           <span class="kola-elementy" id="kola-naglowek">Koła ratunkowe:</span>
           <div class="kola-elementy">
@@ -67,6 +81,7 @@ async function grajWithFocus(event: any) {
         </div>
         <ul
           class="zasady"
+          ref="instrukcja"
           tabindex="0"
           :aria-label="instrukcja_reader.instrukcja"
         >

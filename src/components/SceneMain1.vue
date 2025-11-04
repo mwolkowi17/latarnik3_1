@@ -63,7 +63,15 @@ onUnmounted(() => {
 //obsługa eventów podpiętych do buttonów
 function JeszczRaz() {
   storeMainComp.ifMain1 = false;
-  storeMainComp.ifInstruction = true;
+  storeMainComp.ifSceneChose1 = true;
+}
+
+async function JeszczRazInFocus(event: any) {
+  event.preventDefault();
+  storeFocus.ifLevelChoseInFocus = true;
+  await nextTick();
+  storeMainComp.ifMain1 = false;
+  storeMainComp.ifSceneChose1 = true;
 }
 
 async function odpowiedz1Click() {
@@ -400,9 +408,14 @@ function KoloFiftyWithFocus(event: Event) {
     ></button>
 
     <div class="container-punktacja">
-      <button class="button-zagraj-jeszcze my-button" @click="JeszczRaz">
+      <!-- <button
+        class="button-zagraj-jeszcze my-button"
+        @click="JeszczRaz"
+        @keydown.enter="JeszczRazInFocus"
+      >
         Zagraj jeszcze raz
-      </button>
+      </button> -->
+      <h3 class="poziom-napis">Poziom 1</h3>
       <!-- <div
         class="licznik-czasu"
         tabindex="0"
@@ -843,6 +856,19 @@ function KoloFiftyWithFocus(event: Event) {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+}
+
+.poziom-napis {
+  width: 400px;
+  text-align: center;
+  position: absolute;
+  left: 100px;
+  top: 0px;
+  font-family: "Proxima Nova", sans-serif;
+  font-size: 60px;
+  font-weight: 600;
+  color: #ffffff;
+  border-bottom: 2px solid #ffffff;
 }
 
 .napis-punktacja {

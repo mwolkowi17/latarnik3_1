@@ -1,15 +1,34 @@
 <script setup lang="ts">
 import { useMainCompStore } from "../stores/mainCompStore";
+import { useFocusStore } from "../stores/focusStore";
+import { nextTick, onMounted, onUnmounted, useTemplateRef } from "vue";
 
 const storeMainComp = useMainCompStore();
+const storeFocus = useFocusStore();
 
-function Start() {
+const startRef = useTemplateRef("start");
+
+onMounted(() => {
+  if (storeFocus.ifStartInFocus) {
+    startRef.value?.focus();
+  }
+});
+
+onUnmounted(() => {
+  storeFocus.ifStartInFocus = false;
+});
+
+async function Start() {
+  storeFocus.ifInstructionFocus = false;
+  await nextTick();
   storeMainComp.ifStart = false;
   storeMainComp.ifInstruction = true;
 }
 
-function StartWithFocus(event: any) {
+async function StartWithFocus(event: any) {
   event.preventDefault();
+  storeFocus.ifInstructionFocus = true;
+  await nextTick();
   storeMainComp.ifStart = false;
   storeMainComp.ifInstruction = true;
 }
@@ -24,6 +43,7 @@ function StartWithFocus(event: any) {
     </div>
     <button
       class="button-start my-button"
+      ref="start"
       @click="Start"
       @keydown.enter="StartWithFocus"
     >

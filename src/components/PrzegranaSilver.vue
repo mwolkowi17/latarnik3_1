@@ -2,10 +2,12 @@
 import { useMainCompStore } from "../stores/mainCompStore";
 import { onMounted, onUnmounted, useTemplateRef, nextTick } from "vue";
 import { useFocusStore } from "../stores/focusStore";
+import { useKolaStore } from "../stores/storeKola";
 import ariatekst from "../lib/aria-texty.json";
 
 const storeMainComp = useMainCompStore();
 const storeFocus = useFocusStore();
+const storeKola = useKolaStore();
 
 const silverPrzegranaRef = useTemplateRef("przegrana-ref");
 
@@ -26,7 +28,32 @@ onUnmounted(() => {
 
 async function jeszczeRaz() {
   storeMainComp.ifPrzegranaSilver = false;
-  storeMainComp.ifMain1 = true;
+  storeMainComp.ifSceneChose1 = true;
+}
+
+async function jeszczeRazInFocus(event: any) {
+  event.preventDefault();
+  storeFocus.ifPytanieInFocus = true;
+  await nextTick();
+  storeMainComp.ifPrzegranaSilver = false;
+  storeMainComp.ifSceneChose1 = true;
+}
+
+function zakonczGre() {
+  storeMainComp.ifPrzegranaSilver = false;
+  storeMainComp.ifStart = true;
+  storeKola.ifWymien = true;
+  storeKola.ifFifty = true;
+  storeKola.ifSeventy = true;
+}
+
+async function zakonczGreInFocus(event: any) {
+  event.preventDefault();
+  storeMainComp.ifPrzegranaSilver = false;
+  storeMainComp.ifStart = true;
+  storeKola.ifWymien = true;
+  storeKola.ifFifty = true;
+  storeKola.ifSeventy = true;
 }
 </script>
 
@@ -37,19 +64,29 @@ async function jeszczeRaz() {
         <div class="przekontna przekontna-a"></div>
         <div class="przekontna przekontna-b"></div>
       </div>
-      <p
-        class="brawo"
+      <div
+        class="text-container"
         ref="przegrana-ref"
         tabindex="0"
-        :aria-label="ariatekst.komunikatPrzegrana"
+        :aria-label="ariatekst.komunikatSrebrny"
       >
-        Przegrana.
-      </p>
-
+        <p class="brawo">Przegrana!</p>
+        <p class="text">Chcesz spróbować jeszcze raz?</p>
+      </div>
       <div class="button-row">
-        <button class="my-button button-win" @click="jeszczeRaz">
-          <p class="button-text">Zagraj jeszcze raz</p>
-          <p class="button-text">- zacznij od poziomu łatwego</p>
+        <button
+          class="my-button button-win"
+          @click="jeszczeRaz"
+          @keydown.enter="jeszczeRazInFocus"
+        >
+          Zagraj jeszcze raz
+        </button>
+        <button
+          class="my-button button-win"
+          @click="zakonczGre"
+          @keydown.enter="zakonczGreInFocus"
+        >
+          Zakończ grę
         </button>
       </div>
     </div>
@@ -96,7 +133,7 @@ async function jeszczeRaz() {
 
 .container-fail-silver {
   width: 1400px;
-  height: 618px;
+  height: 700px;
   border-radius: 39px;
   background-color: #f48506;
   border: 5px solid #1d5488;
@@ -111,7 +148,7 @@ async function jeszczeRaz() {
   left: 267px;
 }
 
-.brawo {
+/*.brawo {
   font-size: 64px;
   margin-top: 32px;
   margin-bottom: 0px;
@@ -164,5 +201,58 @@ async function jeszczeRaz() {
 .button-text {
   margin-top: 0px;
   margin-bottom: 0px;
+} */
+
+.text-container {
+  margin-left: 90px;
+  margin-right: 90px;
+}
+
+.text-container:focus {
+  outline: 3px solid black;
+  outline-offset: 5px;
+}
+
+.brawo {
+  font-size: 64px;
+  margin-top: 32px;
+  margin-bottom: 0px;
+}
+
+.text {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.ikona {
+  margin-top: 20px;
+}
+
+.button-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 50px;
+}
+
+.button-win {
+  text-align: center;
+  font-size: 36px;
+  font-style: bold;
+  font-weight: 400;
+  font-family: "Proxima Nova", sans-serif;
+  display: grid;
+  place-content: center;
+  width: 460px;
+  height: 113px;
+  border-radius: 39px;
+  background-color: #093343;
+  color: white;
+  position: relative;
+}
+
+.button-win:focus {
+  outline: 5px solid black;
+  outline-offset: 10px;
 }
 </style>

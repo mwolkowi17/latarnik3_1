@@ -1,3 +1,5 @@
+// store nieużywany - stary koncempt
+
 import { defineStore } from "pinia";
 import { ref } from "vue";
 
@@ -8,6 +10,7 @@ export const useFocusStore = defineStore("focus2", () => {
   const ifWinGoldInFocus = ref(false);
   const ifPrzegranaGoldInFocus = ref(false);
   const ifPodpowiedzInFocus = ref(false);
+  const ifLevel2ChoseInFocus = ref(false);
 
   function focusOn() {
     ifPrawidlowaOdpowiedzInFocus.value = true;
@@ -31,6 +34,7 @@ export const useFocusStore = defineStore("focus2", () => {
     ifWinGoldInFocus,
     ifPrzegranaGoldInFocus,
     ifPodpowiedzInFocus,
+    ifLevel2ChoseInFocus,
     focusOn,
     focusOff,
   };

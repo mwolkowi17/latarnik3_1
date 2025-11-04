@@ -30,20 +30,38 @@ onUnmounted(() => {
 
 function ZagrajJeszcze() {
   storeMainComp.ifWinGold = false;
-  storeMainComp.ifMain1 = true;
+  // storeMainComp.ifMain1 = true;
+  // storeKola.ifWymien = true;
+  // storeKola.ifFifty = true;
+  // storeKola.ifSeventy = true;
+  // storeTime.isPaused = false;
+  storeMainComp.ifSceneChose2 = true;
+}
+
+async function ZagrajJeszczeInFocus(event: any) {
+  event.preventDefault();
+  storeFocus.ifLevelChoseInFocus = true;
+  await nextTick();
+  storeMainComp.ifWinGold = false;
+  storeMainComp.ifSceneChose2 = true;
+}
+
+function ZakonczGre() {
+  storeMainComp.ifWinGold = false;
+  storeMainComp.ifStart = true;
   storeKola.ifWymien = true;
   storeKola.ifFifty = true;
   storeKola.ifSeventy = true;
   storeTime.isPaused = false;
 }
 
-function ZakonczGre() {
+async function ZakonczGreInFocus(event: any) {
+  event.preventDefault();
   storeMainComp.ifWinGold = false;
-  storeMainComp.ifInstruction = true;
+  storeMainComp.ifStart = true;
   storeKola.ifWymien = true;
   storeKola.ifFifty = true;
   storeKola.ifSeventy = true;
-  storeTime.isPaused = false;
 }
 </script>
 
@@ -69,10 +87,18 @@ function ZakonczGre() {
         <p class="text">Poziom trudny - ukończony!</p>
       </div>
       <div class="button-row">
-        <button class="my-button button-win" @click="ZagrajJeszcze">
+        <button
+          class="my-button button-win"
+          @click="ZagrajJeszcze"
+          @keydown.enter="ZagrajJeszczeInFocus"
+        >
           Zagraj jeszcze raz
         </button>
-        <button class="my-button button-win" @click="ZakonczGre">
+        <button
+          class="my-button button-win"
+          @click="ZakonczGre"
+          @keydown.enter="ZakonczGreInFocus"
+        >
           Zakończ grę
         </button>
       </div>
