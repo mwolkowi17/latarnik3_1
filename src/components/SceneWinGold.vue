@@ -83,8 +83,8 @@ async function ZakonczGreInFocus(event: any) {
         :aria-label="ariatekst.komunikatZloty"
       >
         <p class="brawo">Gratulacje!</p>
-        <p class="text text-nagroda">Nagroda – złoty puchar.</p>
-        <p class="text">Poziom trudny - ukończony!</p>
+        <!-- <p class="text text-nagroda">Gratulacje!</p> -->
+        <p class="brawo">Nagroda – złoty puchar.</p>
       </div>
       <div class="button-row">
         <button

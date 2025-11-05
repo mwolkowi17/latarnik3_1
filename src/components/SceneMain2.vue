@@ -4,7 +4,7 @@ import PrawidlowaOdpowiedz from "./PrawidlowaOdpowiedz.vue";
 import ZlaOdpowiedz from "./ZlaOdpowiedz.vue";
 import { useScene2Store } from "../stores/scene2Store";
 import { useTimer2Store } from "../stores/timer2Store";
-import { useMainCompStore } from "../stores/mainCompStore";
+//import { useMainCompStore } from "../stores/mainCompStore";
 import { useKola2Store } from "../stores/store2Kola";
 import { useFocusStore } from "../stores/focusStore";
 import { metodyPomocnicze } from "../lib/metody-pomocnicze";
@@ -12,7 +12,7 @@ import { nextTick, onMounted, onUnmounted, useTemplateRef, ref } from "vue";
 
 const storeSceneMain = useScene2Store();
 const storeTime = useTimer2Store();
-const storeMainComp = useMainCompStore();
+//const storeMainComp = useMainCompStore();
 const storeKola = useKola2Store();
 const storeFocus = useFocusStore();
 
@@ -63,18 +63,18 @@ onUnmounted(() => {
 });
 
 //obsługa eventów podpiętych do buttonów
-function JeszczRaz() {
-  storeMainComp.ifMain2 = false;
-  storeMainComp.ifSceneChose2 = true;
-}
+// function JeszczRaz() {
+//   storeMainComp.ifMain2 = false;
+//   storeMainComp.ifSceneChose2 = true;
+// }
 
-async function JeszczRazInFocus(event: any) {
-  event.preventDefault();
-  storeFocus.ifLevelChoseInFocus = true;
-  await nextTick();
-  storeMainComp.ifMain2 = false;
-  storeMainComp.ifSceneChose2 = true;
-}
+// async function JeszczRazInFocus(event: any) {
+//   event.preventDefault();
+//   storeFocus.ifLevelChoseInFocus = true;
+//   await nextTick();
+//   storeMainComp.ifMain2 = false;
+//   storeMainComp.ifSceneChose2 = true;
+// }
 
 async function odpowiedz1Click() {
   if (!storeSceneMain.ifZablokowanaOdpowiedz) {

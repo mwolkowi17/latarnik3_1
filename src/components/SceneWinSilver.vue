@@ -74,8 +74,8 @@ async function ZakonczGreFocus(event: any) {
         :aria-label="ariatekst.komunikatSrebrny"
       >
         <p class="brawo">Brawo! Nagroda – srebrny puchar.</p>
-        <p class="text">Poziom łatwy - ukończony!</p>
-        <p class="text">Przejdź do następnego poziomu.</p>
+        <p class="text">Udało ci się ukończyć Poziom 1</p>
+        <p class="text">– chcesz grać dalej?</p>
       </div>
       <div class="button-row">
         <button

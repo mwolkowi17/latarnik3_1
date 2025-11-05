@@ -40,17 +40,20 @@ export const useKola2Store = defineStore("kola_store2", () => {
 
     if (
       metodyPomocnicze.sprawdzOdpowiedz(1, storeSceneMain.nrOdpowiedziDobrej) !=
-      true
+        true &&
+      storeSceneMain.ifOdpowiedz1 === true
     ) {
       storeSceneMain.ifOdpowiedz1 = false;
     } else if (
       metodyPomocnicze.sprawdzOdpowiedz(2, storeSceneMain.nrOdpowiedziDobrej) !=
-      true
+        true &&
+      storeSceneMain.ifOdpowiedz2 === true
     ) {
       storeSceneMain.ifOdpowiedz2 = false;
     } else if (
       metodyPomocnicze.sprawdzOdpowiedz(3, storeSceneMain.nrOdpowiedziDobrej) !=
-      true
+        true &&
+      storeSceneMain.ifOdpowiedz3 === true
     ) {
       storeSceneMain.ifOdpowiedz3 = false;
     } else {
@@ -67,14 +70,16 @@ export const useKola2Store = defineStore("kola_store2", () => {
     ifFifty.value = false;
     if (
       metodyPomocnicze.sprawdzOdpowiedz(1, storeSceneMain.nrOdpowiedziDobrej) !=
-      true
+        true &&
+      storeSceneMain.ifOdpowiedz1 === true
     ) {
       storeSceneMain.ifOdpowiedz1 = false;
       jendaJuzJest++;
     }
     if (
       metodyPomocnicze.sprawdzOdpowiedz(2, storeSceneMain.nrOdpowiedziDobrej) !=
-      true
+        true &&
+      storeSceneMain.ifOdpowiedz2 === true
     ) {
       storeSceneMain.ifOdpowiedz2 = false;
       jendaJuzJest++;
@@ -85,7 +90,8 @@ export const useKola2Store = defineStore("kola_store2", () => {
     }
     if (
       metodyPomocnicze.sprawdzOdpowiedz(3, storeSceneMain.nrOdpowiedziDobrej) !=
-      true
+        true &&
+      storeSceneMain.ifOdpowiedz3 === true
     ) {
       storeSceneMain.ifOdpowiedz3 = false;
       jendaJuzJest++;
@@ -96,7 +102,8 @@ export const useKola2Store = defineStore("kola_store2", () => {
     }
     if (
       metodyPomocnicze.sprawdzOdpowiedz(4, storeSceneMain.nrOdpowiedziDobrej) !=
-      true
+        true &&
+      storeSceneMain.ifOdpowiedz4 === true
     ) {
       storeSceneMain.ifOdpowiedz4 = false;
       jendaJuzJest++;
