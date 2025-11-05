@@ -3,6 +3,6 @@
   "komunikatZlaOdpowiedz": "Niestety, zła odpowiedź",
   "komunikatDobraOdpowiedz": "Brawo, prawidłowa odpowiedź",
   "komunikatPrzegrana": "Przegrana. Chcesz spróbować jeszcze raz?",
-  "komunikatSrebrny": "Brawo! Nagroda – srebrny puchar. Poziom łatwy - ukończony! Przejdź do następnego poziomu.",
-  "komunikatZloty": "Gratulacje! Nagroda – złoty puchar. Poziom trudny - ukończony!"
+  "komunikatSrebrny": "Brawo! Nagroda – srebrny puchar. Udało ci się ukończyć Poziom 1. Chcesz grać dalej?",
+  "komunikatZloty": "Gratulacje! Nagroda – złoty puchar."
 }
