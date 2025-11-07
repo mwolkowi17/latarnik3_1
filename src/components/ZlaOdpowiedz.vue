@@ -33,7 +33,7 @@ onMounted(() => {
       height="104px"
     />
     <p class="brawo">Niestety!</p>
-    <p class="text">Zła odpowiedź.</p>
+    <p class="text">Niepoprawna odpowiedź.</p>
   </div>
 </template>
 

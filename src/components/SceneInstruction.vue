@@ -43,16 +43,22 @@ async function grajWithFocus(event: any) {
       <div class="inner-box">
         <h1 class="title">Zasady gry</h1>
         <div class="kola-ratunkowe">
-          <span class="kola-elementy" id="kola-naglowek">Koła ratunkowe:</span>
+          <span class="kola-napis">Koła ratunkowe:</span>
           <div class="kola-elementy">
-            <div class="elipsa">50:50</div>
+            <div class="elipsa elipsa-seven">
+              <img class="line-diagonal" src="../assets/line.png" />
+              <p class="elipsa-fifty-text">2</p>
+            </div>
             <p class="podpis-1">usuń dwie</p>
-            <p class="podpis-1">złe odpwiedzi</p>
+            <p class="podpis-1">niepoprawne odpwiedzi</p>
           </div>
           <div class="kola-elementy">
-            <div class="elipsa">75:100</div>
+            <div class="elipsa elipsa-fifty">
+              <img class="line-diagonal" src="../assets/line.png" />
+              <p class="elipsa-seventy-text">1</p>
+            </div>
             <p class="podpis-1">usuń jedną</p>
-            <p class="podpis-1">złą odpwiedź</p>
+            <p class="podpis-1">niepoprawną odpwiedź</p>
           </div>
           <div class="kola-elementy">
             <div class="elipsa elipsa-wymien">
@@ -63,8 +69,8 @@ async function grajWithFocus(event: any) {
                 height="100px"
               />
             </div>
-            <p class="podpis-1 podpis-wymien">wymień</p>
-            <p class="podpis-1 podpis-pytanie">pytanie</p>
+            <p class="podpis-1">wymień pytanie</p>
+            <p class="podpis-1">pytanie</p>
           </div>
           <div class="kola-elementy">
             <div class="elipsa elipsa-podpowiedz">
@@ -75,42 +81,49 @@ async function grajWithFocus(event: any) {
                 height="80px"
               />
             </div>
-            <p class="podpis-1 podpis-odpowiedz">podpowiedź</p>
-            <p class="podpis-1"></p>
+            <p class="podpis-1">podpowiedź</p>
+            <p class="podpis-1">&nbsp</p>
           </div>
         </div>
-        <ul
+        <ol
           class="zasady"
           ref="instrukcja"
           tabindex="0"
           :aria-label="instrukcja_reader.instrukcja"
         >
           <li>
-            Gra polega na udzieleniu poprawnej odpowiedzi na 10 pytań,
-            podzielonych na dwa poziomy trudności: łatwy i trudny. Twoim celem
-            jest ukończenie gry i zdobycie złotego pucharu.
+            Gra składa się z dwóch poziomów. Na każdym poziomie odpowiadasz na
+            pięć pytań.
           </li>
           <li>
-            Każde pytanie ma cztery opcje odpowiedzi. Masz 20 sekund, żeby
-            odpowiedzieć na każde pytanie.
+            Poziom 1 – masz trzy koła ratunkowe:
+            <ul>
+              <li>usuń dwie niepoprawne odpowiedzi</li>
+              <li>usuń jedną niepoprawną odpowiedź</li>
+              <li>wymień pytanie</li>
+            </ul>
+          </li>
+          <li>Poziom 2 – masz dodatkowe koło ratunkowe: podpowiedź.</li>
+          <li>Każde koło ratunkowe możesz wykorzystać tylko raz.</li>
+          <li>
+            Za każdą poprawną odpowiedź zdobywasz monetę. Niepoprawna odpowiedź
+            oznacza koniec gry.
           </li>
           <li>
-            Na poziomie łatwym masz do dyspozycji trzy koła ratunkowe, a na
-            poziomie trudnym cztery koła ratunkowe, które możesz wykorzystać
-            tylko raz.
+            Nagrody:
+            <ul>
+              <li>
+                Nagrody: Jeśli wygrasz poziom 1, to otrzymujesz srebrny puchar.
+              </li>
+              <li>
+                Nagrody: Jeśli wygrasz całą grę, to otrzymujesz złoty puchar.
+              </li>
+            </ul>
           </li>
-          <li>
-            Za każdą prawidłową odpowiedź zdobywasz monety. Przy poprawnej
-            odpowiedzi na pytanie 5, czyli po ukończeniu poziomu łatwego masz
-            zagwarantowaną wygraną - srebrny Puchar.
-          </li>
-          <li>
-            Jeżeli udzielisz niepoprawnej odpowiedzi na poziomie łatwym,
-            rozpoczynasz grę od nowa, jeżeli źle odpowiesz na poziomie trudnym,
-            rozpoczynasz grę od pierwszego pytania na poziomie trudnym.
-          </li>
-          <li>Kiedy ukończysz grę, możesz zagrać jeszcze raz.</li>
-        </ul>
+          <!-- <p class="powodzenia-text">Powodzenia!</p> -->
+          <p class="powodzenia-text">Powodzenia!</p>
+        </ol>
+
         <button
           class="button-start my-button"
           @click="Graj"
@@ -171,7 +184,7 @@ async function grajWithFocus(event: any) {
   font-style: bold;
   font-weight: 700;
   font-family: "Proxima Nova", sans-serif;
-  margin-top: -20px;
+  margin-top: 0px;
 }
 
 .kola-ratunkowe {
@@ -187,7 +200,7 @@ async function grajWithFocus(event: any) {
   gap: 24px;
   position: relative;
   margin-left: 181px;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 }
 
 li {
@@ -198,10 +211,17 @@ li {
   display: inline-block;
   position: relative;
   text-align: center;
+  margin-left: 0px;
+  /* background-color: aqua; */
+  width: 320px;
 }
 
 #kola-naglowek {
   margin-top: -110px;
+}
+
+.kola-napis {
+  margin-left: -130px;
 }
 
 .elipsa {
@@ -211,9 +231,49 @@ li {
   background-image: url("../assets/ellipse1.png");
   background-size: 158px 118px;
   background-repeat: no-repeat;
-  margin-left: 25px;
+  margin-left: 80px;
   padding-top: 36px;
   margin-bottom: -20px;
+}
+
+.elipsa-seven {
+  color: #093343;
+  font-size: 50px;
+  font-style: medium;
+  font-weight: 500;
+  font-family: "Proxima Nova", sans-serif;
+  /* position: absolute; */
+  top: 17px;
+}
+
+.elipsa-fifty {
+  color: #093343;
+  font-size: 50px;
+  font-style: medium;
+  font-weight: 500;
+  font-family: "Proxima Nova", sans-serif;
+  /* position: absolute; */
+  top: 17px;
+}
+
+.line-diagonal {
+  position: absolute;
+  top: 40px;
+  left: 130px;
+}
+.elipsa-seventy-text {
+  position: absolute;
+  top: -22px;
+  left: 145px;
+  /* background-image: url("../assets/line.png");
+  background-size: 55px 38px;
+  background-repeat: no-repeat; */
+}
+
+.elipsa-fifty-text {
+  position: absolute;
+  top: -22px;
+  left: 145px;
 }
 
 .elipsa-wymien {
@@ -254,13 +314,28 @@ li {
   font-style: medium;
   font-weight: 500;
   font-family: "Proxima Nova", sans-serif;
-  margin-left: 56px;
+  margin-left: 40px;
   margin-right: 50px;
+  align-self: start;
 }
 
 .zasady:focus {
   outline: 2px solid black;
   outline-offset: 10px;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+.powodzenia-text {
+  color: #093343;
+  font-size: 30px;
+  font-style: medium;
+  font-weight: 500;
+  font-family: "Proxima Nova", sans-serif;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .button-start {
@@ -274,6 +349,7 @@ li {
   font-weight: 600;
   font-family: "Proxima Nova", sans-serif;
   position: relative;
+  margin-top: -30px;
 }
 
 .button-start:focus {

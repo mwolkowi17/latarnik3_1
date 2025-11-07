@@ -27,6 +27,8 @@ const odpowiedz3Ref = useTemplateRef("odp3-ref");
 const odpowiedz4Ref = useTemplateRef("odp4-ref");
 
 onMounted(async () => {
+  storeKola.ResetKolRatunkowych();
+  await nextTick();
   storeSceneMain.pytanieTempRef = pytanieRef.value;
   //storeSceneMain.addQuestionLevel1();
   storeTime.startTimerValue();
@@ -57,7 +59,7 @@ onUnmounted(() => {
   clearInterval(storeTime.timerInterval);
   storeTime.isPaused = false;
   storeSceneMain.ResetScene();
-  storeKola.ResetKolRatunkowych();
+  //storeKola.ResetKolRatunkowych();
 });
 
 //obsługa eventów podpiętych do buttonów
@@ -311,7 +313,8 @@ function KoloFiftyWithFocus(event: Event) {
         tabindex="0"
         aria-label="koło ratunkowe - usunięcie jednej złej odpowiedzi"
       >
-        <p>75:100</p>
+        <img class="line-diagonal" src="../assets/line.png" />
+        <p class="elipsa-seventy-text">1</p>
       </div>
     </div>
     <div class="kola-elementy" v-if="storeKola.ifFifty">
@@ -322,7 +325,8 @@ function KoloFiftyWithFocus(event: Event) {
         tabindex="0"
         aria-label="koło ratunkowe - usunięcie dwóch złych odpowiedzi"
       >
-        <p>50:50</p>
+        <img class="line-diagonal" src="../assets/line.png" />
+        <p class="elipsa-fifty-text">2</p>
       </div>
     </div>
     <!-- <img
@@ -676,7 +680,7 @@ function KoloFiftyWithFocus(event: Event) {
 
 .elipsa-seven {
   color: #093343;
-  font-size: 35px;
+  font-size: 50px;
   font-style: medium;
   font-weight: 500;
   font-family: "Proxima Nova", sans-serif;
@@ -685,15 +689,35 @@ function KoloFiftyWithFocus(event: Event) {
   left: 940px;
 }
 
+.line-diagonal {
+  position: absolute;
+  top: 40px;
+  left: 50px;
+}
+.elipsa-seventy-text {
+  position: absolute;
+  top: -22px;
+  left: 67px;
+  /* background-image: url("../assets/line.png");
+  background-size: 55px 38px;
+  background-repeat: no-repeat; */
+}
+
 .elipsa-fifty {
   color: #093343;
-  font-size: 35px;
+  font-size: 50px;
   font-style: medium;
   font-weight: 500;
   font-family: "Proxima Nova", sans-serif;
   position: absolute;
   top: 17px;
   left: 1118px;
+}
+
+.elipsa-fifty-text {
+  position: absolute;
+  top: -22px;
+  left: 65px;
 }
 
 .glosnik {

@@ -34,7 +34,7 @@ onMounted(async () => {
       height="93px"
     />
     <p class="brawo">Brawo!</p>
-    <p class="text">Prawidłowa odpowiedź.</p>
+    <p class="text">Poprawna odpowiedź.</p>
   </div>
 </template>
 

@@ -2,9 +2,12 @@ import { defineStore } from "pinia";
 import { nextTick, ref } from "vue";
 import { useScene2Store } from "./scene2Store";
 import { metodyPomocnicze } from "../lib/metody-pomocnicze";
+import { useKolaStore } from "./storeKola";
 
 export const useKola2Store = defineStore("kola_store2", () => {
   const storeSceneMain = useScene2Store();
+  //pomocniczo żeby wyłączyć koła użyte w pierwszej części
+  const storeKolaPrevious = useKolaStore();
 
   //wyswietlanie ikon podpowiedzi
   const ifWymien = ref(true);
@@ -17,6 +20,18 @@ export const useKola2Store = defineStore("kola_store2", () => {
 
   //flaga blokująca użycie kół
   const ifZablokowaneKola = ref(false);
+
+  function UpdateKolaUzyte() {
+    if (!storeKolaPrevious.ifWymien) {
+      ifWymien.value = false;
+    }
+    if (!storeKolaPrevious.ifFifty) {
+      ifFifty.value = false;
+    }
+    if (!storeKolaPrevious.ifSeventy) {
+      ifSeventy.value = false;
+    }
+  }
 
   async function PokazPodpowiedz() {
     ifSkorzystałZKola.value = true;
@@ -129,6 +144,7 @@ export const useKola2Store = defineStore("kola_store2", () => {
     ifButtonPodpowiedz,
     ifSkorzystałZKola,
     ifZablokowaneKola,
+    UpdateKolaUzyte,
     PokazPodpowiedz,
     WymienPytanie,
     UsunJedna,
