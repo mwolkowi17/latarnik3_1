@@ -50,7 +50,7 @@ async function grajWithFocus(event: any) {
               <p class="elipsa-fifty-text">2</p>
             </div>
             <p class="podpis-1">usuń dwie</p>
-            <p class="podpis-1">niepoprawne odpwiedzi</p>
+            <p class="podpis-1">niepoprawne odpowiedzi</p>
           </div>
           <div class="kola-elementy">
             <div class="elipsa elipsa-fifty">
@@ -58,7 +58,7 @@ async function grajWithFocus(event: any) {
               <p class="elipsa-seventy-text">1</p>
             </div>
             <p class="podpis-1">usuń jedną</p>
-            <p class="podpis-1">niepoprawną odpwiedź</p>
+            <p class="podpis-1">niepoprawną odpowiedź</p>
           </div>
           <div class="kola-elementy">
             <div class="elipsa elipsa-wymien">
@@ -112,12 +112,8 @@ async function grajWithFocus(event: any) {
           <li>
             Nagrody:
             <ul>
-              <li>
-                Nagrody: Jeśli wygrasz poziom 1, to otrzymujesz srebrny puchar.
-              </li>
-              <li>
-                Nagrody: Jeśli wygrasz całą grę, to otrzymujesz złoty puchar.
-              </li>
+              <li>Jeśli wygrasz poziom 1, to otrzymujesz srebrny puchar.</li>
+              <li>Jeśli wygrasz całą grę, to otrzymujesz złoty puchar.</li>
             </ul>
           </li>
           <!-- <p class="powodzenia-text">Powodzenia!</p> -->
@@ -213,7 +209,7 @@ li {
   text-align: center;
   margin-left: 0px;
   /* background-color: aqua; */
-  width: 320px;
+  width: 340px;
 }
 
 #kola-naglowek {
