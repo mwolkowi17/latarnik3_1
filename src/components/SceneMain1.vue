@@ -439,8 +439,14 @@ function KoloFiftyWithFocus(event: Event) {
         tabindex="0"
         :aria-label="storeSceneMain.czytajPunkty()"
       ></div>
+      <!-- <div
+        class="ramka-punktacja"
+        :style="{ top: '653px' }"
+        tabindex="0"
+        :aria-label="storeSceneMain.czytajPunkty()"
+      ></div> -->
       <div class="container-points">
-        <div class="punktacja-row">
+        <div class="punktacja-row row-10">
           <p class="napis-punktacja">10</p>
           <img
             class="punktacja-elementy"
@@ -449,7 +455,7 @@ function KoloFiftyWithFocus(event: Event) {
             height="80px"
           />
         </div>
-        <div class="punktacja-row">
+        <div class="punktacja-row row-9">
           <p class="napis-punktacja">9</p>
           <img
             class="punktacja-elementy moneta"
@@ -476,7 +482,7 @@ function KoloFiftyWithFocus(event: Event) {
             height="58px"
           />
         </div>
-        <div class="punktacja-row">
+        <div class="punktacja-row row-8">
           <p class="napis-punktacja">8</p>
           <img
             class="punktacja-elementy moneta"
@@ -497,7 +503,7 @@ function KoloFiftyWithFocus(event: Event) {
             height="58px"
           />
         </div>
-        <div class="punktacja-row">
+        <div class="punktacja-row row-7">
           <p class="napis-punktacja">7</p>
           <img
             class="punktacja-elementy moneta"
@@ -512,7 +518,7 @@ function KoloFiftyWithFocus(event: Event) {
             height="58px"
           />
         </div>
-        <div class="punktacja-row">
+        <div class="punktacja-row row-6">
           <p class="napis-punktacja">6</p>
           <img
             class="punktacja-elementy moneta"
@@ -521,7 +527,7 @@ function KoloFiftyWithFocus(event: Event) {
             height="58px"
           />
         </div>
-        <div class="punktacja-row">
+        <div class="punktacja-row row-5">
           <p class="napis-punktacja">5</p>
           <img
             class="punktacja-elementy moneta"
@@ -530,7 +536,7 @@ function KoloFiftyWithFocus(event: Event) {
             height="80px"
           />
         </div>
-        <div class="punktacja-row">
+        <div class="punktacja-row row-4">
           <p class="napis-punktacja">4</p>
           <img
             class="punktacja-elementy moneta"
@@ -557,7 +563,7 @@ function KoloFiftyWithFocus(event: Event) {
             height="58px"
           />
         </div>
-        <div class="punktacja-row">
+        <div class="punktacja-row row-3">
           <p class="napis-punktacja">3</p>
           <img
             class="punktacja-elementy moneta"
@@ -578,7 +584,7 @@ function KoloFiftyWithFocus(event: Event) {
             height="58px"
           />
         </div>
-        <div class="punktacja-row">
+        <div class="punktacja-row row-2">
           <p class="napis-punktacja">2</p>
           <img
             class="punktacja-elementy moneta"
@@ -593,7 +599,7 @@ function KoloFiftyWithFocus(event: Event) {
             height="58px"
           />
         </div>
-        <div class="punktacja-row">
+        <div class="punktacja-row row-1">
           <p class="napis-punktacja">1</p>
           <img
             class="punktacja-elementy moneta"
@@ -873,13 +879,13 @@ function KoloFiftyWithFocus(event: Event) {
 .container-points {
   position: absolute;
   width: 540px;
-  height: 800px;
-  top: 250px;
+  height: 850px;
+  top: 210px;
   left: 25px;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: flex-start; */
 }
 
 .poziom-napis {
@@ -911,6 +917,58 @@ function KoloFiftyWithFocus(event: Event) {
   margin-bottom: 20px;
   display: flex;
   align-items: center;
+  /* position: absolute; */
+}
+
+.row-10 {
+  position: absolute;
+  top: 32px;
+}
+
+.row-9 {
+  position: absolute;
+  top: 123px;
+}
+
+.row-8 {
+  position: absolute;
+  top: 204px;
+}
+
+.row-7 {
+  position: absolute;
+  top: 285px;
+}
+
+.row-6 {
+  position: absolute;
+  top: 366px;
+}
+
+.row-5 {
+  position: absolute;
+  top: 437px;
+}
+
+.row-4 {
+  position: absolute;
+  top: 528px;
+}
+
+.row-3 {
+  position: absolute;
+  top: 609px;
+}
+
+.row-2 {
+  position: absolute;
+  top: 690px;
+}
+
+.row-1 {
+  position: absolute;
+  left: 7px;
+  top: 771px;
 }
 
 .punktacja-elementy {
