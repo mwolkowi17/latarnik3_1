@@ -200,6 +200,7 @@ async function grajWithFocus(event: any) {
 }
 
 li {
+  margin-top: 10px;
   margin-bottom: 10px;
 }
 
@@ -344,8 +345,8 @@ ul {
   font-style: bold;
   font-weight: 600;
   font-family: "Proxima Nova", sans-serif;
-  position: relative;
-  margin-top: -30px;
+  position: relatve;
+  margin-top: -45px;
 }
 
 .button-start:focus {

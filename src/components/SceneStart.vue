@@ -46,6 +46,7 @@ async function StartWithFocus(event: any) {
       ref="start"
       @click="Start"
       @keydown.enter="StartWithFocus"
+      aria-label="Gra edukacyjna - uruchom grę"
     >
       Start
     </button>
