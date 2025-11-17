@@ -270,14 +270,6 @@ function KoloFiftyWithFocus(event: Event) {
   }
   pytanieRef.value?.focus();
 }
-
-// function PauseTimer() {
-//   storeTime.isPaused = true;
-// }
-
-// function PlayTimer() {
-//   storeTime.isPaused = false;
-// }
 </script>
 
 <template>
@@ -329,13 +321,6 @@ function KoloFiftyWithFocus(event: Event) {
         <p class="elipsa-fifty-text">2</p>
       </div>
     </div>
-    <!-- <img
-      class="glosnik"
-      src="../assets/glosnik.png"
-      alt="glosnik"
-      width="84px"
-      height="74px"
-    /> -->
 
     <Podpowiedz
       class="component-podpowiedz"
@@ -412,27 +397,7 @@ function KoloFiftyWithFocus(event: Event) {
     ></button>
 
     <div class="container-punktacja">
-      <!-- <button
-        class="button-zagraj-jeszcze my-button"
-        @click="JeszczRaz"
-        @keydown.enter="JeszczRazInFocus"
-      >
-        Zagraj jeszcze raz
-      </button> -->
       <h3 class="poziom-napis">Poziom 1</h3>
-      <!-- <div
-        class="licznik-czasu"
-        tabindex="0"
-        :aria-label="storeTime.timeScene1Local.toString()"
-      >
-        <p class="licznik-display">
-          {{ storeTime.formattedTime }}
-        </p>
-      </div>
-      <button class="my-button button-pauza" @click="PauseTimer">Pauza</button>
-      <button class="my-button button-kontynuj" @click="PlayTimer">
-        Kontynuj
-      </button> -->
       <div
         class="ramka-punktacja"
         :style="{ top: storeSceneMain.ramkaPunktacjaWysokosc + 'px' }"

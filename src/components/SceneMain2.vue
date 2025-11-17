@@ -341,13 +341,6 @@ async function KoloPodpowiedzWithFocus(event: Event) {
         <p class="elipsa-fifty-text">2</p>
       </div>
     </div>
-    <!-- <img
-      class="glosnik"
-      src="../assets/glosnik.png"
-      alt="glosnik"
-      width="84px"
-      height="74px"
-    /> -->
 
     <Podpowiedz
       class="component-podpowiedz"
@@ -428,39 +421,15 @@ async function KoloPodpowiedzWithFocus(event: Event) {
     </button>
 
     <div class="container-punktacja">
-      <!-- <button
-        class="button-zagraj-jeszcze my-button"
-        @click="JeszczRaz"
-        @keydown.enter="JeszczRazInFocus"
-      >
-        Zagraj jeszcze raz
-      </button> -->
       <h3 class="poziom-napis">Poziom 2</h3>
-      <!-- <div
-        class="licznik-czasu"
-        tabindex="0"
-        :aria-label="storeTime.timeScene1Local.toString()"
-      >
-        <p class="licznik-display">
-          {{ storeTime.formattedTime }}
-        </p>
-      </div>
-      <button class="my-button button-pauza" @click="PauseTimer">Pauza</button>
-      <button class="my-button button-kontynuj" @click="PlayTimer">
-        Kontynuj
-      </button> -->
+
       <div
         class="ramka-punktacja"
         :style="{ top: storeSceneMain.ramkaPunktacjaWysokosc + 'px' }"
         tabindex="0"
         :aria-label="storeSceneMain.czytajPunkty()"
       ></div>
-      <!-- <div
-        class="ramka-punktacja"
-        :style="{ top: '249px' }"
-        tabindex="0"
-        :aria-label="storeSceneMain.czytajPunkty()"
-      ></div> -->
+
       <div class="container-points">
         <div class="punktacja-row row-10">
           <p class="napis-punktacja">10</p>
