@@ -48,10 +48,10 @@
     {
       "id": "6",
       "pytanie": "Gdzie walczył Skawiński?",
-      "odpowiedz1": "w Hiszpanii, we Francji, na <br>Węgrzech i w Stanach Zjednoczonych",
-      "odpowiedz2": "w Hiszpanii, w Niemczech, na <br>Węgrzech i w Stanach Zjednoczonych",
-      "odpowiedz3": "w Holandii, we Francji, na <br>Węgrzech i w Anglii",
-      "odpowiedz4": "w Hiszpanii, we Włoszech, na <br>Węgrzech i w Stanach Zjednoczonych",
+      "odpowiedz1": "w Hiszpanii, we Francji, <br>na Węgrzech i w Stanach Zjednoczonych",
+      "odpowiedz2": "w Hiszpanii, w Niemczech, <br>na Węgrzech i w Stanach Zjednoczonych",
+      "odpowiedz3": "w Holandii, we Francji, <br>na Węgrzech i w Anglii",
+      "odpowiedz4": "w Hiszpanii, we Włoszech, <br>na Węgrzech i w Stanach Zjednoczonych",
       "prawidlowa_odpowiedz": "1"
     },
     {
@@ -140,10 +140,10 @@
     {
       "id": "6",
       "pytanie": "Gdzie walczył Skawiński?",
-      "odpowiedz1": "w Hiszpanii, we Włoszech, na <br>Węgrzech i w Stanach Zjednoczonych",
-      "odpowiedz2": "w Hiszpanii, we Francji, na <br>Węgrzech i w Stanach Zjednoczonych",
-      "odpowiedz3": "w Hiszpanii, w Niemczech, na <br>Węgrzech i w Stanach Zjednoczonych",
-      "odpowiedz4": "w Holandii, we Francji, na <br>Węgrzech i w Anglii",
+      "odpowiedz1": "w Hiszpanii, we Włoszech, <br>na Węgrzech i w Stanach Zjednoczonych",
+      "odpowiedz2": "w Hiszpanii, we Francji, <br>na Węgrzech i w Stanach Zjednoczonych",
+      "odpowiedz3": "w Hiszpanii, w Niemczech, <br>na Węgrzech i w Stanach Zjednoczonych",
+      "odpowiedz4": "w Holandii, we Francji, <br>na Węgrzech i w Anglii",
       "prawidlowa_odpowiedz": "2"
     },
     {
@@ -232,10 +232,10 @@
     {
       "id": "6",
       "pytanie": "Gdzie walczył Skawiński?",
-      "odpowiedz1": "w Holandii, we Francji,na <br>Węgrzech i w Anglii",
-      "odpowiedz2": "w Hiszpanii, we Włoszech, na <br>Węgrzech i w Stanach Zjednoczonych",
-      "odpowiedz3": "w Hiszpanii, we Francji, na <br>Węgrzech i w Stanach Zjednoczonych",
-      "odpowiedz4": "w Hiszpanii, w Niemczech, na <br>Węgrzech i w Stanach Zjednoczonych",
+      "odpowiedz1": "w Holandii, we Francji,<br>na Węgrzech i w Anglii",
+      "odpowiedz2": "w Hiszpanii, we Włoszech, <br>na Węgrzech i w Stanach Zjednoczonych",
+      "odpowiedz3": "w Hiszpanii, we Francji, <br>na Węgrzech i w Stanach Zjednoczonych",
+      "odpowiedz4": "w Hiszpanii, w Niemczech, <br>na Węgrzech i w Stanach Zjednoczonych",
       "prawidlowa_odpowiedz": "3"
     },
     {

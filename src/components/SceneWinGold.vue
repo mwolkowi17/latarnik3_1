@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { useMainCompStore } from "../stores/mainCompStore";
 import { useKolaStore } from "../stores/storeKola";
-import { useTimerStore } from "../stores/timerStore";
+//import { useTimerStore } from "../stores/timerStore";
 import { onMounted, onUnmounted, useTemplateRef, nextTick } from "vue";
 import { useFocusStore } from "../stores/focusStore";
 import ariatekst from "../lib/aria-texty.json";
 
 const storeMainComp = useMainCompStore();
 const storeKola = useKolaStore();
-const storeTime = useTimerStore();
+//const storeTime = useTimerStore();
 const storeFocus = useFocusStore();
 
 const silverWinRef = useTemplateRef("silver-win-ref");
@@ -52,7 +52,7 @@ function ZakonczGre() {
   storeKola.ifWymien = true;
   storeKola.ifFifty = true;
   storeKola.ifSeventy = true;
-  storeTime.isPaused = false;
+  //storeTime.isPaused = false;
 }
 
 async function ZakonczGreInFocus(event: any) {
@@ -108,7 +108,7 @@ async function ZakonczGreInFocus(event: any) {
 
 <style scoped>
 .tlo {
-  background-image: url("../assets/latarnia.png");
+  background-image: url("../assets/latarnia.jpg");
   background-size: 1920px 1080px;
   height: 1080px;
   width: 1920px;

@@ -3,7 +3,7 @@ import Podpowiedz from "./Podpowiedz.vue";
 import PrawidlowaOdpowiedz from "./PrawidlowaOdpowiedz.vue";
 import ZlaOdpowiedz from "./ZlaOdpowiedz.vue";
 import { useSceneStore } from "../stores/sceneStore";
-import { useTimerStore } from "../stores/timerStore";
+//import { useTimerStore } from "../stores/timerStore";
 //import { useMainCompStore } from "../stores/mainCompStore";
 import { useKolaStore } from "../stores/storeKola";
 import { useFocusStore } from "../stores/focusStore";
@@ -11,7 +11,7 @@ import { metodyPomocnicze } from "../lib/metody-pomocnicze";
 import { nextTick, onMounted, onUnmounted, useTemplateRef, ref } from "vue";
 
 const storeSceneMain = useSceneStore();
-const storeTime = useTimerStore();
+//const storeTime = useTimerStore();
 //const storeMainComp = useMainCompStore();
 const storeKola = useKolaStore();
 const storeFocus = useFocusStore();
@@ -27,12 +27,13 @@ const odpowiedz3Ref = useTemplateRef("odp3-ref");
 const odpowiedz4Ref = useTemplateRef("odp4-ref");
 
 onMounted(async () => {
+  //to trzeba zakomentować aby koła się nie zresetowały
   storeKola.ResetKolRatunkowych();
   await nextTick();
   storeSceneMain.pytanieTempRef = pytanieRef.value;
   //storeSceneMain.addQuestionLevel1();
-  storeTime.startTimerValue();
-  storeTime.startTimer();
+  // storeTime.startTimerValue();
+  // storeTime.startTimer();
   if (storeFocus.ifPytanieInFocus) {
     pytanieRef.value?.focus();
   }
@@ -56,8 +57,8 @@ onMounted(async () => {
 });
 
 onUnmounted(() => {
-  clearInterval(storeTime.timerInterval);
-  storeTime.isPaused = false;
+  // clearInterval(storeTime.timerInterval);
+  // storeTime.isPaused = false;
   storeSceneMain.ResetScene();
   //storeKola.ResetKolRatunkowych();
 });
@@ -88,7 +89,7 @@ async function odpowiedz1Click() {
     } else {
       storeSceneMain.backgroundColorOdpowiedz1 = "#F48506";
     }
-    storeTime.isPaused = true;
+    // storeTime.isPaused = true;
     odpowiedz1Ref.value?.blur();
     storeSceneMain.ifZablokowanaOdpowiedz = true;
     storeKola.ifZablokowaneKola = true;
@@ -108,7 +109,7 @@ async function odpowiedz1ClickWithFocus(event: any) {
     } else {
       storeSceneMain.backgroundColorOdpowiedz1 = "#F48506";
     }
-    storeTime.isPaused = true;
+    //storeTime.isPaused = true;
     storeSceneMain.ifZablokowanaOdpowiedz = true;
     storeKola.ifZablokowaneKola = true;
   }
@@ -126,7 +127,7 @@ async function odpowiedz2Click() {
     } else {
       storeSceneMain.backgroundColorOdpowiedz2 = "#F48506";
     }
-    storeTime.isPaused = true;
+    //storeTime.isPaused = true;
     odpowiedz2Ref.value?.blur();
     storeSceneMain.ifZablokowanaOdpowiedz = true;
     storeKola.ifZablokowaneKola = true;
@@ -146,7 +147,7 @@ async function odpowiedz2ClickWithFocus(event: any) {
     } else {
       storeSceneMain.backgroundColorOdpowiedz2 = "#F48506";
     }
-    storeTime.isPaused = true;
+    //storeTime.isPaused = true;
     storeSceneMain.ifZablokowanaOdpowiedz = true;
     storeKola.ifZablokowaneKola = true;
   }
@@ -164,7 +165,7 @@ async function odpowiedz3Click() {
     } else {
       storeSceneMain.backgroundColorOdpowiedz3 = "#F48506";
     }
-    storeTime.isPaused = true;
+    //storeTime.isPaused = true;
     odpowiedz3Ref.value?.blur();
     storeSceneMain.ifZablokowanaOdpowiedz = true;
     storeKola.ifZablokowaneKola = true;
@@ -184,7 +185,7 @@ async function odpowiedz3ClickWithFocus(event: any) {
     } else {
       storeSceneMain.backgroundColorOdpowiedz3 = "#F48506";
     }
-    storeTime.isPaused = true;
+    //storeTime.isPaused = true;
     storeSceneMain.ifZablokowanaOdpowiedz = true;
     storeKola.ifZablokowaneKola = true;
   }
@@ -202,7 +203,7 @@ async function odpowiedz4Click() {
     } else {
       storeSceneMain.backgroundColorOdpowiedz4 = "#F48506";
     }
-    storeTime.isPaused = true;
+    //storeTime.isPaused = true;
     odpowiedz4Ref.value?.blur();
     storeSceneMain.ifZablokowanaOdpowiedz = true;
     storeKola.ifZablokowaneKola = true;
@@ -222,7 +223,7 @@ async function odpowiedz4ClickWithFocus(event: any) {
     } else {
       storeSceneMain.backgroundColorOdpowiedz4 = "#F48506";
     }
-    storeTime.isPaused = true;
+    //storeTime.isPaused = true;
     storeSceneMain.ifZablokowanaOdpowiedz = true;
     await nextTick();
     storeKola.ifZablokowaneKola = true;
@@ -580,7 +581,7 @@ function KoloFiftyWithFocus(event: Event) {
 
 <style scoped>
 .tlo {
-  background-image: url("../assets/latarnia.png");
+  background-image: url("../assets/latarnia.jpg");
   background-size: 1920px 1080px;
   height: 1080px;
   width: 1920px;
@@ -726,7 +727,7 @@ function KoloFiftyWithFocus(event: Event) {
   top: 633px;
   left: 32px;
   text-align: center;
-  font-size: 36px;
+  font-size: 32px;
   font-style: bold;
   font-weight: 400;
   font-family: "Proxima Nova", sans-serif;
@@ -742,7 +743,7 @@ function KoloFiftyWithFocus(event: Event) {
 .button-odpowiedz {
   position: absolute;
   text-align: center;
-  font-size: 36px;
+  font-size: 32px;
   font-style: bold;
   font-weight: 400;
   font-family: "Proxima Nova", sans-serif;

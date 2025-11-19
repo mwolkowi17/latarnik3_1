@@ -24,12 +24,20 @@ export const useKola2Store = defineStore("kola_store2", () => {
   function UpdateKolaUzyte() {
     if (!storeKolaPrevious.ifWymien) {
       ifWymien.value = false;
+    } else {
+      ifWymien.value = true;
     }
+
     if (!storeKolaPrevious.ifFifty) {
       ifFifty.value = false;
+    } else {
+      ifFifty.value = true;
     }
+
     if (!storeKolaPrevious.ifSeventy) {
       ifSeventy.value = false;
+    } else {
+      ifSeventy.value = true;
     }
   }
 

@@ -145,7 +145,7 @@ async function grajWithFocus(event: any) {
 }
 
 .tlo {
-  background-image: url("../assets/latarnia.png");
+  background-image: url("../assets/latarnia.jpg");
   background-size: 1920px 1080px;
   height: 1080px;
   width: 1920px;
@@ -314,6 +314,7 @@ li {
   margin-left: 40px;
   margin-right: 50px;
   align-self: start;
+  width: 1680px;
 }
 
 .zasady:focus {

@@ -5,14 +5,14 @@ import pointsPosition from "../lib/pozycjaRamki.json";
 //import polozenieOdpowiedzi from "../lib/odpowiedziPozycje.json";
 import { metodyPomocnicze } from "../lib/metody-pomocnicze";
 import { useMainCompStore } from "../stores/mainCompStore";
-import { useTimerStore } from "./timerStore";
+//import { useTimerStore } from "./timerStore";
 import { useKolaStore } from "./storeKola";
 import { useFocusStore } from "./focusStore";
 
 export const useSceneStore = defineStore("storeScene1", () => {
   //dostęp do store'ów
   const storeSceneMain = useMainCompStore();
-  const timerStore = useTimerStore();
+  //const timerStore = useTimerStore();
   const storeKola = useKolaStore();
   const storeFocus = useFocusStore();
 
@@ -162,10 +162,10 @@ export const useSceneStore = defineStore("storeScene1", () => {
         }
 
         ramkaPunktyMove();
-        timerStore.isPaused = false;
-        timerStore.timeScene1Local = 20;
+        //timerStore.isPaused = false;
+        //timerStore.timeScene1Local = 20;
         if (licznikPunktacja.value === 5) {
-          timerStore.isPaused = true;
+          //timerStore.isPaused = true;
           storeSceneMain.ifMain1 = false;
           storeSceneMain.ifWinSilver = true;
         }

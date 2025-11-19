@@ -3,7 +3,7 @@ import Podpowiedz from "./Podpowiedz.vue";
 import PrawidlowaOdpowiedz from "./PrawidlowaOdpowiedz.vue";
 import ZlaOdpowiedz from "./ZlaOdpowiedz.vue";
 import { useScene2Store } from "../stores/scene2Store";
-import { useTimer2Store } from "../stores/timer2Store";
+//import { useTimer2Store } from "../stores/timer2Store";
 //import { useMainCompStore } from "../stores/mainCompStore";
 import { useKola2Store } from "../stores/store2Kola";
 import { useFocusStore } from "../stores/focusStore";
@@ -11,7 +11,7 @@ import { metodyPomocnicze } from "../lib/metody-pomocnicze";
 import { nextTick, onMounted, onUnmounted, useTemplateRef, ref } from "vue";
 
 const storeSceneMain = useScene2Store();
-const storeTime = useTimer2Store();
+//const storeTime = useTimer2Store();
 //const storeMainComp = useMainCompStore();
 const storeKola = useKola2Store();
 const storeFocus = useFocusStore();
@@ -27,13 +27,14 @@ const odpowiedz3Ref = useTemplateRef("odp3-ref");
 const odpowiedz4Ref = useTemplateRef("odp4-ref");
 
 onMounted(async () => {
+  //tu trzeba dać warunek typu !useFirstTime żeby koła nie przepisały się z pierwszego etapu
   storeKola.UpdateKolaUzyte();
   storeSceneMain.pytanieTempRef = pytanieRef.value;
   //storeSceneMain.addQuestionLevel1();
-  storeTime.isPaused = false;
-  storeTime.startTimerValue();
+  //storeTime.isPaused = false;
+  //storeTime.startTimerValue();
   // storeTime.updateTimerDispay()
-  storeTime.startTimer();
+  //storeTime.startTimer();
   if (storeFocus.ifPytanieInFocus) {
     pytanieRef.value?.focus();
   }
@@ -57,8 +58,8 @@ onMounted(async () => {
 });
 
 onUnmounted(() => {
-  clearInterval(storeTime.timerInterval);
-  storeTime.isPaused = false;
+  //clearInterval(storeTime.timerInterval);
+  //storeTime.isPaused = false;
   storeSceneMain.ResetScene();
   //storeKola.ResetKolRatunkowych();
 });
@@ -75,7 +76,7 @@ async function odpowiedz1Click() {
     } else {
       storeSceneMain.backgroundColorOdpowiedz1 = "#F48506";
     }
-    storeTime.isPaused = true;
+    //storeTime.isPaused = true;
     odpowiedz1Ref.value?.blur();
     storeSceneMain.ifZablokowanaOdpowiedz = true;
     storeKola.ifZablokowaneKola = true;
@@ -95,7 +96,7 @@ async function odpowiedz1ClickWithFocus(event: any) {
     } else {
       storeSceneMain.backgroundColorOdpowiedz1 = "#F48506";
     }
-    storeTime.isPaused = true;
+    //storeTime.isPaused = true;
     storeSceneMain.ifZablokowanaOdpowiedz = true;
     storeKola.ifZablokowaneKola = true;
   }
@@ -113,7 +114,7 @@ async function odpowiedz2Click() {
     } else {
       storeSceneMain.backgroundColorOdpowiedz2 = "#F48506";
     }
-    storeTime.isPaused = true;
+    //storeTime.isPaused = true;
     odpowiedz2Ref.value?.blur();
     storeSceneMain.ifZablokowanaOdpowiedz = true;
     storeKola.ifZablokowaneKola = true;
@@ -133,7 +134,7 @@ async function odpowiedz2ClickWithFocus(event: any) {
     } else {
       storeSceneMain.backgroundColorOdpowiedz2 = "#F48506";
     }
-    storeTime.isPaused = true;
+    //storeTime.isPaused = true;
     storeSceneMain.ifZablokowanaOdpowiedz = true;
     storeKola.ifZablokowaneKola = true;
   }
@@ -151,7 +152,7 @@ async function odpowiedz3Click() {
     } else {
       storeSceneMain.backgroundColorOdpowiedz3 = "#F48506";
     }
-    storeTime.isPaused = true;
+    //storeTime.isPaused = true;
     odpowiedz3Ref.value?.blur();
     storeSceneMain.ifZablokowanaOdpowiedz = true;
     storeKola.ifZablokowaneKola = true;
@@ -171,7 +172,7 @@ async function odpowiedz3ClickWithFocus(event: any) {
     } else {
       storeSceneMain.backgroundColorOdpowiedz3 = "#F48506";
     }
-    storeTime.isPaused = true;
+    //storeTime.isPaused = true;
     storeSceneMain.ifZablokowanaOdpowiedz = true;
     storeKola.ifZablokowaneKola = true;
   }
@@ -189,7 +190,7 @@ async function odpowiedz4Click() {
     } else {
       storeSceneMain.backgroundColorOdpowiedz4 = "#F48506";
     }
-    storeTime.isPaused = true;
+    //storeTime.isPaused = true;
     odpowiedz4Ref.value?.blur();
     storeSceneMain.ifZablokowanaOdpowiedz = true;
     storeKola.ifZablokowaneKola = true;
@@ -208,7 +209,7 @@ async function odpowiedz4ClickWithFocus(event: any) {
   } else {
     storeSceneMain.backgroundColorOdpowiedz4 = "#F48506";
   }
-  storeTime.isPaused = true;
+  //storeTime.isPaused = true;
   storeSceneMain.ifZablokowanaOdpowiedz = true;
   storeKola.ifZablokowaneKola = true;
 }
@@ -600,7 +601,7 @@ async function KoloPodpowiedzWithFocus(event: Event) {
 
 <style scoped>
 .tlo {
-  background-image: url("../assets/latarnia.png");
+  background-image: url("../assets/latarnia.jpg");
   background-size: 1920px 1080px;
   height: 1080px;
   width: 1920px;

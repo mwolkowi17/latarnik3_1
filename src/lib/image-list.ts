@@ -1,5 +1,5 @@
 export const images = [
-  new URL("../assets/latarnia.png", import.meta.url).href,
+  new URL("../assets/latarnia.jpg", import.meta.url).href,
   new URL("../assets/dobra_odp.png", import.meta.url).href,
   new URL("../assets/ellipse1.png", import.meta.url).href,
   new URL("../assets/glosnik.png", import.meta.url).href,

@@ -54,7 +54,7 @@ async function Level1Focus(event: any) {
 </template>
 <style scoped>
 .tlo {
-  background-image: url("../assets/latarnia.png");
+  background-image: url("../assets/latarnia.jpg");
   background-size: 1920px 1080px;
   height: 1080px;
   width: 1920px;
