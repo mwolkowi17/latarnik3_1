@@ -3,16 +3,12 @@ import Podpowiedz from "./Podpowiedz.vue";
 import PrawidlowaOdpowiedz from "./PrawidlowaOdpowiedz.vue";
 import ZlaOdpowiedz from "./ZlaOdpowiedz.vue";
 import { useSceneStore } from "../stores/sceneStore";
-//import { useTimerStore } from "../stores/timerStore";
-//import { useMainCompStore } from "../stores/mainCompStore";
 import { useKolaStore } from "../stores/storeKola";
 import { useFocusStore } from "../stores/focusStore";
 import { metodyPomocnicze } from "../lib/metody-pomocnicze";
 import { nextTick, onMounted, onUnmounted, useTemplateRef, ref } from "vue";
 
 const storeSceneMain = useSceneStore();
-//const storeTime = useTimerStore();
-//const storeMainComp = useMainCompStore();
 const storeKola = useKolaStore();
 const storeFocus = useFocusStore();
 
@@ -27,13 +23,9 @@ const odpowiedz3Ref = useTemplateRef("odp3-ref");
 const odpowiedz4Ref = useTemplateRef("odp4-ref");
 
 onMounted(async () => {
-  //to trzeba zakomentować aby koła się nie zresetowały
   storeKola.ResetKolRatunkowych();
   await nextTick();
   storeSceneMain.pytanieTempRef = pytanieRef.value;
-  //storeSceneMain.addQuestionLevel1();
-  // storeTime.startTimerValue();
-  // storeTime.startTimer();
   if (storeFocus.ifPytanieInFocus) {
     pytanieRef.value?.focus();
   }
@@ -57,25 +49,10 @@ onMounted(async () => {
 });
 
 onUnmounted(() => {
-  // clearInterval(storeTime.timerInterval);
-  // storeTime.isPaused = false;
   storeSceneMain.ResetScene();
-  //storeKola.ResetKolRatunkowych();
 });
 
 //obsługa eventów podpiętych do buttonów
-// function JeszczRaz() {
-//   storeMainComp.ifMain1 = false;
-//   storeMainComp.ifSceneChose1 = true;
-// }
-
-// async function JeszczRazInFocus(event: any) {
-//   event.preventDefault();
-//   storeFocus.ifLevelChoseInFocus = true;
-//   await nextTick();
-//   storeMainComp.ifMain1 = false;
-//   storeMainComp.ifSceneChose1 = true;
-// }
 
 async function odpowiedz1Click() {
   if (!storeSceneMain.ifZablokowanaOdpowiedz) {
@@ -89,7 +66,6 @@ async function odpowiedz1Click() {
     } else {
       storeSceneMain.backgroundColorOdpowiedz1 = "#F48506";
     }
-    // storeTime.isPaused = true;
     odpowiedz1Ref.value?.blur();
     storeSceneMain.ifZablokowanaOdpowiedz = true;
     storeKola.ifZablokowaneKola = true;
@@ -109,7 +85,6 @@ async function odpowiedz1ClickWithFocus(event: any) {
     } else {
       storeSceneMain.backgroundColorOdpowiedz1 = "#F48506";
     }
-    //storeTime.isPaused = true;
     storeSceneMain.ifZablokowanaOdpowiedz = true;
     storeKola.ifZablokowaneKola = true;
   }
@@ -127,7 +102,6 @@ async function odpowiedz2Click() {
     } else {
       storeSceneMain.backgroundColorOdpowiedz2 = "#F48506";
     }
-    //storeTime.isPaused = true;
     odpowiedz2Ref.value?.blur();
     storeSceneMain.ifZablokowanaOdpowiedz = true;
     storeKola.ifZablokowaneKola = true;
@@ -147,7 +121,6 @@ async function odpowiedz2ClickWithFocus(event: any) {
     } else {
       storeSceneMain.backgroundColorOdpowiedz2 = "#F48506";
     }
-    //storeTime.isPaused = true;
     storeSceneMain.ifZablokowanaOdpowiedz = true;
     storeKola.ifZablokowaneKola = true;
   }
@@ -165,7 +138,6 @@ async function odpowiedz3Click() {
     } else {
       storeSceneMain.backgroundColorOdpowiedz3 = "#F48506";
     }
-    //storeTime.isPaused = true;
     odpowiedz3Ref.value?.blur();
     storeSceneMain.ifZablokowanaOdpowiedz = true;
     storeKola.ifZablokowaneKola = true;
@@ -185,7 +157,6 @@ async function odpowiedz3ClickWithFocus(event: any) {
     } else {
       storeSceneMain.backgroundColorOdpowiedz3 = "#F48506";
     }
-    //storeTime.isPaused = true;
     storeSceneMain.ifZablokowanaOdpowiedz = true;
     storeKola.ifZablokowaneKola = true;
   }
@@ -203,7 +174,6 @@ async function odpowiedz4Click() {
     } else {
       storeSceneMain.backgroundColorOdpowiedz4 = "#F48506";
     }
-    //storeTime.isPaused = true;
     odpowiedz4Ref.value?.blur();
     storeSceneMain.ifZablokowanaOdpowiedz = true;
     storeKola.ifZablokowaneKola = true;
@@ -223,7 +193,6 @@ async function odpowiedz4ClickWithFocus(event: any) {
     } else {
       storeSceneMain.backgroundColorOdpowiedz4 = "#F48506";
     }
-    //storeTime.isPaused = true;
     storeSceneMain.ifZablokowanaOdpowiedz = true;
     await nextTick();
     storeKola.ifZablokowaneKola = true;
@@ -275,11 +244,6 @@ function KoloFiftyWithFocus(event: Event) {
 
 <template>
   <div class="tlo">
-    <!-- <div class="kola-elementy">
-            <div class="elipsa elipsa-podpowiedz">
-                <img src="../assets/podpowiedz.png" alt="wymien pytanie" width="103px" height="78px" />
-            </div>
-        </div> -->
     <div class="kola-elementy" v-if="storeKola.ifWymien">
       <div
         class="elipsa elipsa-wymien my-button"
@@ -405,12 +369,6 @@ function KoloFiftyWithFocus(event: Event) {
         tabindex="0"
         :aria-label="storeSceneMain.czytajPunkty()"
       ></div>
-      <!-- <div
-        class="ramka-punktacja"
-        :style="{ top: '653px' }"
-        tabindex="0"
-        :aria-label="storeSceneMain.czytajPunkty()"
-      ></div> -->
       <div class="container-points">
         <div class="punktacja-row row-10">
           <p class="napis-punktacja">10</p>
@@ -670,9 +628,6 @@ function KoloFiftyWithFocus(event: Event) {
   position: absolute;
   top: -22px;
   left: 67px;
-  /* background-image: url("../assets/line.png");
-  background-size: 55px 38px;
-  background-repeat: no-repeat; */
 }
 
 .elipsa-fifty {
@@ -752,7 +707,6 @@ function KoloFiftyWithFocus(event: Event) {
   width: 620px;
   height: 125px;
   border-radius: 39px;
-  /* background-color: #D7E2F1; */
   border: 5px solid #1d5488;
 }
 
@@ -848,10 +802,6 @@ function KoloFiftyWithFocus(event: Event) {
   height: 850px;
   top: 210px;
   left: 25px;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start; */
 }
 
 .poziom-napis {
@@ -883,7 +833,6 @@ function KoloFiftyWithFocus(event: Event) {
   margin-bottom: 20px;
   display: flex;
   align-items: center;
-  /* position: absolute; */
 }
 
 .row-10 {
@@ -951,7 +900,6 @@ function KoloFiftyWithFocus(event: Event) {
   background: #093343;
   width: 558px;
   height: 70px;
-  /* top: 990px; */
   left: 15px;
 }
 

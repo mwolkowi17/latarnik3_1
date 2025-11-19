@@ -67,7 +67,6 @@ async function Level1Focus(event: any) {
   align-items: center;
 }
 .button-level1 {
-  /* position: absolute; */
   color: white;
   background-color: #093343;
   width: 550px;
@@ -81,7 +80,6 @@ async function Level1Focus(event: any) {
 }
 
 .button-level2 {
-  /* position: absolute; */
   color: white;
   background-color: #6b6f71;
   width: 550px;

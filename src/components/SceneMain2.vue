@@ -3,16 +3,12 @@ import Podpowiedz from "./Podpowiedz.vue";
 import PrawidlowaOdpowiedz from "./PrawidlowaOdpowiedz.vue";
 import ZlaOdpowiedz from "./ZlaOdpowiedz.vue";
 import { useScene2Store } from "../stores/scene2Store";
-//import { useTimer2Store } from "../stores/timer2Store";
-//import { useMainCompStore } from "../stores/mainCompStore";
 import { useKola2Store } from "../stores/store2Kola";
 import { useFocusStore } from "../stores/focusStore";
 import { metodyPomocnicze } from "../lib/metody-pomocnicze";
 import { nextTick, onMounted, onUnmounted, useTemplateRef, ref } from "vue";
 
 const storeSceneMain = useScene2Store();
-//const storeTime = useTimer2Store();
-//const storeMainComp = useMainCompStore();
 const storeKola = useKola2Store();
 const storeFocus = useFocusStore();
 
@@ -27,15 +23,9 @@ const odpowiedz3Ref = useTemplateRef("odp3-ref");
 const odpowiedz4Ref = useTemplateRef("odp4-ref");
 
 onMounted(async () => {
-  //tu trzeba dać warunek typu !useFirstTime żeby koła nie przepisały się z pierwszego etapu
   storeKola.UpdateKolaUzyte();
   storeKola.ifButtonPodpowiedz = true;
   storeSceneMain.pytanieTempRef = pytanieRef.value;
-  //storeSceneMain.addQuestionLevel1();
-  //storeTime.isPaused = false;
-  //storeTime.startTimerValue();
-  // storeTime.updateTimerDispay()
-  //storeTime.startTimer();
   if (storeFocus.ifPytanieInFocus) {
     pytanieRef.value?.focus();
   }
@@ -59,10 +49,7 @@ onMounted(async () => {
 });
 
 onUnmounted(() => {
-  //clearInterval(storeTime.timerInterval);
-  //storeTime.isPaused = false;
   storeSceneMain.ResetScene();
-  //storeKola.ResetKolRatunkowych();
 });
 
 async function odpowiedz1Click() {
@@ -77,7 +64,6 @@ async function odpowiedz1Click() {
     } else {
       storeSceneMain.backgroundColorOdpowiedz1 = "#F48506";
     }
-    //storeTime.isPaused = true;
     odpowiedz1Ref.value?.blur();
     storeSceneMain.ifZablokowanaOdpowiedz = true;
     storeKola.ifZablokowaneKola = true;
@@ -97,7 +83,6 @@ async function odpowiedz1ClickWithFocus(event: any) {
     } else {
       storeSceneMain.backgroundColorOdpowiedz1 = "#F48506";
     }
-    //storeTime.isPaused = true;
     storeSceneMain.ifZablokowanaOdpowiedz = true;
     storeKola.ifZablokowaneKola = true;
   }
@@ -115,7 +100,6 @@ async function odpowiedz2Click() {
     } else {
       storeSceneMain.backgroundColorOdpowiedz2 = "#F48506";
     }
-    //storeTime.isPaused = true;
     odpowiedz2Ref.value?.blur();
     storeSceneMain.ifZablokowanaOdpowiedz = true;
     storeKola.ifZablokowaneKola = true;
@@ -135,7 +119,6 @@ async function odpowiedz2ClickWithFocus(event: any) {
     } else {
       storeSceneMain.backgroundColorOdpowiedz2 = "#F48506";
     }
-    //storeTime.isPaused = true;
     storeSceneMain.ifZablokowanaOdpowiedz = true;
     storeKola.ifZablokowaneKola = true;
   }
@@ -153,7 +136,6 @@ async function odpowiedz3Click() {
     } else {
       storeSceneMain.backgroundColorOdpowiedz3 = "#F48506";
     }
-    //storeTime.isPaused = true;
     odpowiedz3Ref.value?.blur();
     storeSceneMain.ifZablokowanaOdpowiedz = true;
     storeKola.ifZablokowaneKola = true;
@@ -173,7 +155,6 @@ async function odpowiedz3ClickWithFocus(event: any) {
     } else {
       storeSceneMain.backgroundColorOdpowiedz3 = "#F48506";
     }
-    //storeTime.isPaused = true;
     storeSceneMain.ifZablokowanaOdpowiedz = true;
     storeKola.ifZablokowaneKola = true;
   }
@@ -191,7 +172,6 @@ async function odpowiedz4Click() {
     } else {
       storeSceneMain.backgroundColorOdpowiedz4 = "#F48506";
     }
-    //storeTime.isPaused = true;
     odpowiedz4Ref.value?.blur();
     storeSceneMain.ifZablokowanaOdpowiedz = true;
     storeKola.ifZablokowaneKola = true;
@@ -210,7 +190,6 @@ async function odpowiedz4ClickWithFocus(event: any) {
   } else {
     storeSceneMain.backgroundColorOdpowiedz4 = "#F48506";
   }
-  //storeTime.isPaused = true;
   storeSceneMain.ifZablokowanaOdpowiedz = true;
   storeKola.ifZablokowaneKola = true;
 }
@@ -271,16 +250,7 @@ async function KoloPodpowiedzWithFocus(event: Event) {
   if (!storeKola.ifZablokowaneKola) {
     storeKola.PokazPodpowiedz();
   }
-  //pytanieRef.value?.focus()
 }
-
-// function PauseTimer() {
-//   storeTime.isPaused = true;
-// }
-
-// function PlayTimer() {
-//   storeTime.isPaused = false;
-// }
 </script>
 
 <template>
@@ -664,8 +634,6 @@ async function KoloPodpowiedzWithFocus(event: Event) {
 }
 
 .elipsa-wymien {
-  /* padding-top: 15px !important;
-    margin-bottom: -0px !important; */
   position: absolute;
   top: 17px;
   left: 763px;
@@ -691,9 +659,6 @@ async function KoloPodpowiedzWithFocus(event: Event) {
   position: absolute;
   top: -22px;
   left: 67px;
-  /* background-image: url("../assets/line.png");
-  background-size: 55px 38px;
-  background-repeat: no-repeat; */
 }
 
 .elipsa-fifty {
@@ -773,7 +738,6 @@ async function KoloPodpowiedzWithFocus(event: Event) {
   width: 620px;
   height: 125px;
   border-radius: 39px;
-  /* background-color: #D7E2F1; */
   border: 5px solid #1d5488;
 }
 
@@ -869,10 +833,6 @@ async function KoloPodpowiedzWithFocus(event: Event) {
   height: 850px;
   top: 210px;
   left: 25px;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start; */
 }
 
 .poziom-napis {
@@ -971,7 +931,6 @@ async function KoloPodpowiedzWithFocus(event: Event) {
   background: #093343;
   width: 558px;
   height: 70px;
-  /* top: 990px; */
   left: 15px;
 }
 

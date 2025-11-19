@@ -2,17 +2,14 @@ import { defineStore } from "pinia";
 import { ref, nextTick } from "vue";
 import gameData from "../lib/pytania.json";
 import pointsPosition from "../lib/pozycjaRamki.json";
-//import polozenieOdpowiedzi from "../lib/odpowiedziPozycje.json";
 import { metodyPomocnicze } from "../lib/metody-pomocnicze";
 import { useMainCompStore } from "../stores/mainCompStore";
-//import { useTimerStore } from "./timerStore";
 import { useKolaStore } from "./storeKola";
 import { useFocusStore } from "./focusStore";
 
 export const useSceneStore = defineStore("storeScene1", () => {
   //dostęp do store'ów
   const storeSceneMain = useMainCompStore();
-  //const timerStore = useTimerStore();
   const storeKola = useKolaStore();
   const storeFocus = useFocusStore();
 
@@ -33,9 +30,6 @@ export const useSceneStore = defineStore("storeScene1", () => {
 
   //refy do elementów
   const pytanieTempRef = ref<HTMLElement | null>(null);
-
-  //położenie odpowiedzi, po zmianach położenie odpowiedzi jest stałe, ale na razie zostawiam...
-  // const nrKolekcjiPolozenPytan = ref(0);
 
   const odpowiedz1Polozenie = ref(["786px", "32px"]);
 
@@ -84,7 +78,6 @@ export const useSceneStore = defineStore("storeScene1", () => {
     backgroundColorOdpowiedz2.value = "#D7E2F1";
     backgroundColorOdpowiedz3.value = "#D7E2F1";
     backgroundColorOdpowiedz4.value = "#D7E2F1";
-    //const kolekcjaPytan = gameData.poziom1;
     let iloscElementowKolekcjiPytan = gameData.poziom1.length - nrKolejki.value;
     let pytanieNr: number;
     pytanieNr = metodyPomocnicze.wybierzPytanie(iloscElementowKolekcjiPytan);
@@ -162,10 +155,7 @@ export const useSceneStore = defineStore("storeScene1", () => {
         }
 
         ramkaPunktyMove();
-        //timerStore.isPaused = false;
-        //timerStore.timeScene1Local = 20;
         if (licznikPunktacja.value === 5) {
-          //timerStore.isPaused = true;
           storeSceneMain.ifMain1 = false;
           storeSceneMain.ifWinSilver = true;
         }
@@ -239,7 +229,6 @@ export const useSceneStore = defineStore("storeScene1", () => {
     backgroundColorOdpowiedz2,
     backgroundColorOdpowiedz3,
     backgroundColorOdpowiedz4,
-    //nrKolekcjiPolozenPytan,
     odpowiedz1Polozenie,
     odpowiedz2Polozenie,
     odpowiedz3Polozenie,

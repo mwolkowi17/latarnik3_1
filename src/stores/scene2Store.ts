@@ -2,17 +2,14 @@ import { defineStore } from "pinia";
 import { ref, nextTick } from "vue";
 import gameData from "../lib/pytania.json";
 import pointsPosition from "../lib/pozycjaRamki.json";
-//import polozenieOdpowiedzi from "../lib/odpowiedziPozycje.json";
 import { metodyPomocnicze } from "../lib/metody-pomocnicze";
 import { useMainCompStore } from "../stores/mainCompStore";
-//import { useTimer2Store } from "./timer2Store";
 import { useKola2Store } from "./store2Kola";
 import { useFocusStore } from "./focusStore";
 
 export const useScene2Store = defineStore("storeScene2", () => {
   //dostęp do store'ów
   const storeSceneMain = useMainCompStore();
-  //const timerStore = useTimer2Store();
   const storeKola = useKola2Store();
   const storeFocus = useFocusStore();
 
@@ -33,9 +30,6 @@ export const useScene2Store = defineStore("storeScene2", () => {
 
   //refy do elementów
   const pytanieTempRef = ref<HTMLElement | null>(null);
-
-  //położenie odpowiedzi, po zmianach położenie odpowiedzi jest stałe, ale na razie zostawiam...
-  //const nrKolekcjiPolozenPytan = ref(0);
 
   const odpowiedz1Polozenie = ref(["786px", "32px"]);
 
@@ -87,7 +81,7 @@ export const useScene2Store = defineStore("storeScene2", () => {
     backgroundColorOdpowiedz2.value = "#D7E2F1";
     backgroundColorOdpowiedz3.value = "#D7E2F1";
     backgroundColorOdpowiedz4.value = "#D7E2F1";
-    //const kolekcjaPytan = gameData.poziom1;
+
     let iloscElementowKolekcjiPytan = gameData.poziom1.length - nrKolejki.value;
     let pytanieNr: number;
     pytanieNr = metodyPomocnicze.wybierzPytanie(iloscElementowKolekcjiPytan);
@@ -103,7 +97,6 @@ export const useScene2Store = defineStore("storeScene2", () => {
     odpowiedz4.value = kolekcjaPytan.value[pytanieNr]?.odpowiedz4 ?? "";
     nrOdpowiedziDobrej.value =
       Number(kolekcjaPytan.value[pytanieNr]?.prawidlowa_odpowiedz) || 0;
-    //wybranaOdpowiedz.value = nrWybranegoPytania;
 
     await nextTick();
     function pytanieNrindex(_: (typeof kolekcjaPytan.value)[0], index: number) {
@@ -168,10 +161,8 @@ export const useScene2Store = defineStore("storeScene2", () => {
         }
 
         ramkaPunktyMove();
-        //timerStore.isPaused = false;
-        //timerStore.timeScene1Local = 20;
+
         if (licznikPunktacja.value === 10) {
-          //timerStore.isPaused = true;
           storeSceneMain.ifMain2 = false;
           storeSceneMain.ifWinGold = true;
         }
@@ -252,7 +243,6 @@ export const useScene2Store = defineStore("storeScene2", () => {
     wybranaOdpowiedz,
     licznikPunktacja,
     nrKolejki,
-    // nrKolekcjiPolozenPytan,
     addQuestionLevel1,
     sprawdzOdpowiedz,
     ramkaPunktyMove,

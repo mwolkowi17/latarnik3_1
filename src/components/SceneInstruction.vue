@@ -130,7 +130,6 @@ async function grajWithFocus(event: any) {
       </div>
     </div>
   </div>
-  <!-- <div class="linia-test"></div> -->
 </template>
 
 <style scoped>
@@ -209,7 +208,6 @@ li {
   position: relative;
   text-align: center;
   margin-left: 0px;
-  /* background-color: aqua; */
   width: 340px;
 }
 
@@ -239,7 +237,6 @@ li {
   font-style: medium;
   font-weight: 500;
   font-family: "Proxima Nova", sans-serif;
-  /* position: absolute; */
   top: 17px;
 }
 
@@ -249,7 +246,6 @@ li {
   font-style: medium;
   font-weight: 500;
   font-family: "Proxima Nova", sans-serif;
-  /* position: absolute; */
   top: 17px;
 }
 
@@ -262,9 +258,6 @@ li {
   position: absolute;
   top: -22px;
   left: 145px;
-  /* background-image: url("../assets/line.png");
-  background-size: 55px 38px;
-  background-repeat: no-repeat; */
 }
 
 .elipsa-fifty-text {
