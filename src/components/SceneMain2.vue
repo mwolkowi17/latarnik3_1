@@ -29,6 +29,7 @@ const odpowiedz4Ref = useTemplateRef("odp4-ref");
 onMounted(async () => {
   //tu trzeba dać warunek typu !useFirstTime żeby koła nie przepisały się z pierwszego etapu
   storeKola.UpdateKolaUzyte();
+  storeKola.ifButtonPodpowiedz = true;
   storeSceneMain.pytanieTempRef = pytanieRef.value;
   //storeSceneMain.addQuestionLevel1();
   //storeTime.isPaused = false;
