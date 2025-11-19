@@ -311,7 +311,7 @@
       "id": "4",
       "pytanie": "Dlaczego Skawiński tak często zmieniał miejsce swojego pobytu?",
       "odpowiedz1": "szukał lepszych zarobków",
-      "odpowiedz2": "nie mógł znaleźć swojego miejsca na świecie",
+      "odpowiedz2": "nie mógł znaleźć swojego miejsca <br>na świecie",
       "odpowiedz3": "uwielbiał podróżować",
       "odpowiedz4": "interesowały go różne kultury i języki",
       "prawidlowa_odpowiedz": "2",
@@ -331,7 +331,7 @@
       "id": "6",
       "pytanie": "Dlaczego utrata pracy była dla Skawińskiego bolesna?",
       "odpowiedz1": "stracił dom",
-      "odpowiedz2": "to była jego ostatnia nadzieja na spokój",
+      "odpowiedz2": "to była jego ostatnia nadzieja <br>na spokój",
       "odpowiedz3": "nie miał już pieniędzy",
       "odpowiedz4": "bał się powrotu do Europy",
       "prawidlowa_odpowiedz": "2",
@@ -414,7 +414,7 @@
       "pytanie": "Dlaczego Skawiński tak często zmieniał miejsce swojego pobytu?",
       "odpowiedz1": "interesowały go różne kultury i języki",
       "odpowiedz2": "szukał lepszych zarobków",
-      "odpowiedz3": "nie mógł znaleźć swojego miejsca na świecie",
+      "odpowiedz3": "nie mógł znaleźć swojego miejsca <br>na świecie",
       "odpowiedz4": "uwielbiał podróżować",
       "prawidlowa_odpowiedz": "3",
       "podpowiedz": "Cały czas szukał spokoju i bezpieczeństwa."
@@ -434,7 +434,7 @@
       "pytanie": "Dlaczego utrata pracy była dla Skawińskiego bolesna?",
       "odpowiedz1": "bał się powrotu do Europy",
       "odpowiedz2": "stracił dom",
-      "odpowiedz3": "to była jego ostatnia nadzieja na spokój",
+      "odpowiedz3": "to była jego ostatnia nadzieja <br>na spokój",
       "odpowiedz4": "nie miał już pieniędzy",
       "prawidlowa_odpowiedz": "3",
       "podpowiedz": "Skawiński szukał cichego miejsca, gdzie mógłby odpocząć."
@@ -517,7 +517,7 @@
       "odpowiedz1": "uwielbiał podróżować",
       "odpowiedz2": "interesowały go różne kultury i języki",
       "odpowiedz3": "szukał lepszych zarobków",
-      "odpowiedz4": "nie mógł znaleźć swojego miejsca na świecie",
+      "odpowiedz4": "nie mógł znaleźć swojego miejsca <br>na świecie",
       "prawidlowa_odpowiedz": "4",
       "podpowiedz": "Cały czas szukał spokoju i bezpieczeństwa."
     },
@@ -537,7 +537,7 @@
       "odpowiedz1": "nie miał już pieniędzy",
       "odpowiedz2": "bał się powrotu do Europy",
       "odpowiedz3": "stracił dom",
-      "odpowiedz4": "to była jego ostatnia nadzieja na spokój",
+      "odpowiedz4": "to była jego ostatnia nadzieja <br>na spokój",
       "prawidlowa_odpowiedz": "4",
       "podpowiedz": "Skawiński szukał cichego miejsca, gdzie mógłby odpocząć."
     },

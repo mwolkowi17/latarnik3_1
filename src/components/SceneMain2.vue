@@ -346,9 +346,8 @@ async function KoloPodpowiedzWithFocus(event: Event) {
       v-if="storeSceneMain.ifOdpowiedz1"
       @click="odpowiedz1Click"
       @keydown.enter="odpowiedz1ClickWithFocus"
-    >
-      {{ storeSceneMain?.odpowiedz1 }}
-    </button>
+      v-html="storeSceneMain.odpowiedz1"
+    ></button>
     <button
       class="button-odpowiedz my-button"
       ref="odp2-ref"
@@ -360,9 +359,8 @@ async function KoloPodpowiedzWithFocus(event: Event) {
       v-if="storeSceneMain.ifOdpowiedz2"
       @click="odpowiedz2Click"
       @keydown.enter="odpowiedz2ClickWithFocus"
-    >
-      {{ storeSceneMain.odpowiedz2 }}
-    </button>
+      v-html="storeSceneMain.odpowiedz2"
+    ></button>
     <button
       class="button-odpowiedz my-button"
       ref="odp3-ref"
@@ -374,9 +372,8 @@ async function KoloPodpowiedzWithFocus(event: Event) {
       v-if="storeSceneMain.ifOdpowiedz3"
       @click="odpowiedz3Click"
       @keydown.enter="odpowiedz3ClickWithFocus"
-    >
-      {{ storeSceneMain.odpowiedz3 }}
-    </button>
+      v-html="storeSceneMain.odpowiedz3"
+    ></button>
     <button
       class="button-odpowiedz my-button"
       ref="odp4-ref"
@@ -388,9 +385,8 @@ async function KoloPodpowiedzWithFocus(event: Event) {
       v-if="storeSceneMain.ifOdpowiedz4"
       @click="odpowiedz4Click"
       @keydown.enter="odpowiedz4ClickWithFocus"
-    >
-      {{ storeSceneMain.odpowiedz4 }}
-    </button>
+      v-html="storeSceneMain.odpowiedz4"
+    ></button>
 
     <div class="container-punktacja">
       <h3 class="poziom-napis">Poziom 2</h3>
