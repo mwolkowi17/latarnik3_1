@@ -31,6 +31,7 @@ export const useSceneStore = defineStore("storeScene1", () => {
   //refy do elementów
   const pytanieTempRef = ref<HTMLElement | null>(null);
 
+  //położenie buttonów odpowiedzi
   const odpowiedz1Polozenie = ref(["786px", "32px"]);
 
   const odpowiedz2Polozenie = ref(["786px", "675px"]);

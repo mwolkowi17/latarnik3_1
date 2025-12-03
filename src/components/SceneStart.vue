@@ -9,6 +9,7 @@ const storeFocus = useFocusStore();
 const startRef = useTemplateRef("start");
 
 onMounted(() => {
+  //sterowanie focusem
   if (storeFocus.ifStartInFocus) {
     startRef.value?.focus();
   }
@@ -64,7 +65,6 @@ async function StartWithFocus(event: any) {
   position: absolute;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
 }
 
